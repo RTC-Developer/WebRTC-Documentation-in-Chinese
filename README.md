@@ -1,3 +1,9 @@
+# WebRTC 文档翻译项目
+
+中文版 WebRTC 1.0官方文档，由 [WebRTC 中文网](http://webrtc.org.cn/)发起的翻译项目
+
+[英文官方文档地址](https://www.w3.org/TR/webrtc/)
+
 ## 贡献力量
 
 如果希望为 RTC(Real-Time Communication) 社区贡献力量，欢迎：
