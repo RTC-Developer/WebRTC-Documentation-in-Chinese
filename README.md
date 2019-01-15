@@ -1,8 +1,6 @@
 # WebRTC 文档翻译项目
 
-中文版 WebRTC 1.0官方文档，由 [RTC 开发者社区](https://rtcdeveloper.com/)及 [WebRTC 中文网](http://webrtc.org.cn/)发起的翻译、校对项目。
-
-[英文官方文档地址](https://www.w3.org/TR/webrtc/)
+中文版 WebRTC 1.0官方文档，由 [RTC 开发者社区](https://rtcdeveloper.com/)及 [WebRTC 中文网](http://webrtc.org.cn/)发起的翻译、校对项目。旨在为 WebRTC 开发者们提供一份标准的 [WebRTC API 文档](https://www.w3.org/TR/webrtc/)，易于大家学习与开发。
 
 目前，我们已经通过编写好的脚本程序（稍后开源，供有需要的人使用）完成了文档的初步翻译工作，翻译后的文档正在逐步添加中。欢迎参与校对。
 
