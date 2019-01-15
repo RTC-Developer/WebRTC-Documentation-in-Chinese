@@ -25,3 +25,9 @@
 ## 感谢本项目的贡献者们
 
 请见《WebRTC 官方文档-中文版》[贡献榜](/contributors.md)
+
+## 术语表
+
+| 术语 | 注解 |
+| --- | --- |
+| STUN | Session Traversal Utilities for NAT，NAT 会话传输应用程序，一种网络协议，它允许位于 NAT（或多重 NAT）后的客户端找出自己的公网地址，查出自己位于哪种类型的 NAT 之后以及NAT为某一个本地端口所绑定的 Internet 端端口。这些信息被用来在两个同时处于 NAT 路由器之后的主机之间建立 UDP 通信。详见 [RFC5389](https://tools.ietf.org/html/rfc5389)。|
