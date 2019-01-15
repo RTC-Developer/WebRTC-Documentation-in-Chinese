@@ -20,7 +20,7 @@
 
 - 为了有利阅读，翻译时请遵循 [翻译排版指南.md](https://github.com/RTCdevcom/translation/blob/master/翻译排版指南.md)
 
-- 翻译流程，请参照 [翻译流程.md](https://github.com/RTCdevcom/translation/blob/master/翻译流程.md)
+- 翻译流程，请参照 [翻译流程.md](/翻译校对流程.md)
 
 ## 感谢本项目的贡献者们
 
