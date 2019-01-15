@@ -18,10 +18,10 @@
 
 如果你有兴趣参与进来，请仔细阅读：
 
-- 为了有利阅读，翻译时请遵循 [翻译排版指南.md](https://github.com/RTCdevcom/translation/blob/master/翻译排版指南.md)
+- 为了有利阅读，翻译时请遵循 [翻译排版指南.md](/翻译排版指南.md)
 
-- 翻译流程，请参照 [翻译流程.md](/翻译校对流程.md)
+- 翻译流程，请参照 [翻译校对流程.md](/翻译校对流程.md)
 
 ## 感谢本项目的贡献者们
 
-请见《WebRTC 官方文档-中文版》[贡献榜](https://github.com/RTC-Developer/WebRTC-Document-in-Chinese/blob/master/contributors.md)
+请见《WebRTC 官方文档-中文版》[贡献榜](/contributors.md)
