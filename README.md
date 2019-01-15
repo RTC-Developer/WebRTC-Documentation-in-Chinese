@@ -22,3 +22,6 @@
 
 - 翻译流程，请参照 [翻译流程.md](https://github.com/RTCdevcom/translation/blob/master/翻译流程.md)
 
+## 感谢本项目的贡献者们
+
+请见《WebRTC 官方文档-中文版》[贡献榜](https://github.com/RTC-Developer/WebRTC-Document-in-Chinese/blob/master/contributors.md)
