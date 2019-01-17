@@ -1,0 +1,6 @@
+```
+enum RTCIceCredentialType {
+  "password",
+  "oauth"
+};
+```
