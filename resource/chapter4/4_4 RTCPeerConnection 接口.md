@@ -1,4 +1,4 @@
-4.4 [RTCPeerConnection 接口](http://w3c.github.io/webrtc-pc/#rtcpeerconnection-interface)
+## 4.4 [RTCPeerConnection 接口](http://w3c.github.io/webrtc-pc/#rtcpeerconnection-interface)
 
 The [JSEP] specification, as a whole, describes the details of how the RTCPeerConnection operates. References to specific subsections of [JSEP] are provided as appropriate.
 
