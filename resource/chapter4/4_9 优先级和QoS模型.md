@@ -1,0 +1,5 @@
+## [4.9 Priority and QoS Model zh:4.9优先级和QoS模型](http://w3c.github.io/webrtc-pc/#priority-and-qos-model)
+
+Many applications have multiple media flows of the same data type and often some of the flows are more important than others. WebRTC uses the priority and Quality of Service (QoS) framework described in [RTCWEB-TRANSPORT] and [TSVWG-RTCWEB-QOS] to provide priority and DSCP marking for packets that will help provide QoS in some networking environments. The priority setting can be used to indicate the relative priority of various flows. The priority API allows the JavaScript applications to tell the browser whether a particular media flow is high, medium, low or of very low importance to the application by setting the priority property of RTCRtpEncodingParameters objects to one of the following values.
+
+zh:许多应用程序具有相同数据类型的多个媒体流，并且通常一些流程比其他流程更重要。 WebRTC使用[RTCWEB-TRANSPORT]和[TSVWG-RTCWEB-QOS]中描述的优先级和服务质量（QoS）框架为有助于在某些网络环境中提供QoS的数据包提供优先级和DSCP标记。优先级设置可用于指示各种流的相对优先级。优先级API允许JavaScript应用程序通过将RTCRtpEncodingParameters对象的priority属性设置为以下值之一来告诉浏览器特定媒体流是对应用程序的高，中，低还是非常低的重要性。
