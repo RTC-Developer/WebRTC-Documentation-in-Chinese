@@ -1,4 +1,4 @@
-[4.2.5 RTCIceTransportPolicy 枚举](http://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum)
+### [4.2.5 RTCIceTransportPolicy 枚举](http://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum)
 
 As described in [JSEP] (section 4.1.1.), if the iceTransportPolicy member of the RTCConfiguration is specified, it defines the ICE candidate policy [JSEP] (section 3.5.3.) the browser uses to surface the permitted candidates to the application; only these candidates will be used for connectivity checks.
 
