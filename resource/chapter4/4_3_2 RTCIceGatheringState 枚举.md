@@ -1,4 +1,4 @@
-### 4.3.2 [RTCIceGatheringState 枚举](http://w3c.github.io/webrtc-pc/#rtcicegatheringstate-enum)
+### [4.3.2 RTCIceGatheringState 枚举](http://w3c.github.io/webrtc-pc/#rtcicegatheringstate-enum)
 
 ```
 enum RTCIceGatheringState {
