@@ -1,4 +1,4 @@
-### 4.3.3 [RTCPeerConnectionState 枚举](http://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum)
+### [4.3.3 RTCPeerConnectionState 枚举](http://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum)
 
 ```
 enum RTCPeerConnectionState {
