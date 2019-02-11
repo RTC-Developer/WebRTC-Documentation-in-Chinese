@@ -1,6 +1,6 @@
-## 4.3 [状态定义](http://w3c.github.io/webrtc-pc/#state-definitions)
+## [4.3 状态定义](http://w3c.github.io/webrtc-pc/#state-definitions)
 
-### 4.3.1 [RTCSignalingState 枚举](http://w3c.github.io/webrtc-pc/#rtcsignalingstate-enum)
+### [4.3.1 RTCSignalingState 枚举](http://w3c.github.io/webrtc-pc/#rtcsignalingstate-enum)
 
 ```
 enum RTCSignalingState {
