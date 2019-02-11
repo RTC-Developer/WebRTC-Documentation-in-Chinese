@@ -1,4 +1,4 @@
-### 4.3.4 [`RTCIceConnectionState` 枚举](http://w3c.github.io/webrtc-pc/#rtciceconnectionstate-enum)
+### [4.3.4 RTCIceConnectionState 枚举](http://w3c.github.io/webrtc-pc/#rtciceconnectionstate-enum)
 
 ```
 enum RTCIceConnectionState {
