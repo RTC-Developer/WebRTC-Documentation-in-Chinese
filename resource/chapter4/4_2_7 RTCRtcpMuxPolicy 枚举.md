@@ -1,4 +1,4 @@
-4.2.7 [RTCRtcpMuxPolicy 枚举](http://w3c.github.io/webrtc-pc/#rtcrtcpmuxpolicy-enum)
+###  [4.2.7 RTCRtcpMuxPolicy 枚举](http://w3c.github.io/webrtc-pc/#rtcrtcpmuxpolicy-enum)
 
 As described in [JSEP] (section 4.1.1.), the RtcpMuxPolicy affects what ICE candidates are gathered to support non-multiplexed RTCP.
 
