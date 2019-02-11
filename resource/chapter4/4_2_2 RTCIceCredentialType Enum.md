@@ -1,4 +1,4 @@
-### [RTCIceCredentialType Enum](http://w3c.github.io/webrtc-pc/#rtcicecredentialtype-enum)
+### [4.2.2 RTCIceCredentialType Enum](http://w3c.github.io/webrtc-pc/#rtcicecredentialtype-enum)
 
 ```
 enum RTCIceCredentialType {
