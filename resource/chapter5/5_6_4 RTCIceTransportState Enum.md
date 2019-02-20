@@ -117,4 +117,4 @@ zh:（已完成，ICE重启）：已连接
 * RTCPeerConnection.close(): closed
 zh:RTCPeerConnection.close（）：已关闭
 
-![](./image/5_6_4 pic.png)
+![](/image/5_6_4pic.png)
