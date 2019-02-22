@@ -1,0 +1,22 @@
+# [8. Statistics Model zh:8.统计模型](http://w3c.github.io/webrtc-pc/#statistics-model)
+## [8.1 Introduction zh:8.1简介](http://w3c.github.io/webrtc-pc/#introduction-0)
+
+The basic statistics model is that the browser maintains a set of statistics for monitored objects, in the form of stats objects. 
+
+zh:基本统计模型是浏览器以统计对象的形式维护受监控对象的一组统计信息。
+
+A group of related objects may be referenced by a selector. The selector may, for example, be a MediaStreamTrack. For a track to be a valid selector, it MUST be a MediaStreamTrack that is sent or received by the RTCPeerConnection object on which the stats request was issued. The calling Web application provides the selector to the getStats() method and the browser emits (in the JavaScript) a set of statistics that are relevant to the selector, according to the stats selection algorithm. Note that that algorithm takes the sender or receiver of a selector.
+
+zh:选择器可以引用一组相关对象。例如，选择器可以是MediaStreamTrack。要使轨道成为有效的选择器，它必须是由发出统计请求的RTCPeerConnection对象发送或接收的MediaStreamTrack。调用Web应用程序为getStats（）方法提供选择器，浏览器根据统计信息选择算法发出（在JavaScript中）与选择器相关的一组统计信息。请注意，该算法采用选择器的发送方或接收方。
+
+The statistics returned in stats objects are designed in such a way that repeated queries can be linked by the RTCStats id dictionary member. Thus, a Web application can make measurements over a given time period by requesting measurements at the beginning and end of that period.
+
+zh:stats对象中返回的统计信息的设计方式是重复查询可以由RTCStats id字典成员链接。因此，Web应用程序可以通过在该时段的开始和结束请求测量来在给定时间段内进行测量。
+
+ With a few exceptions, monitored objects, once created, exist for the duration of their associated RTCPeerConnection. This ensures statistics from them are available in the result from getStats() even past the associated peer connection being closed. 
+
+zh: 除少数例外情况外，受监控对象一旦创建，就会在其关联的RTCPeerConnection期间存在。这样可以确保getStats（）的结果中的统计信息在关闭的关联对等连接之后可用。
+
+Only a few monitored objects have shorter lifetimes. For these objects, their lifetime ends when they are deleted by algorithms. At the time of deletion, a record of their statistics is emitted in a single statsended event containing an RTCStatsReport object with statistics from all objects deleted at the same time. Statistics from these objects are no longer available in subsequent getStats() results. The object descriptions in [WEBRTC-STATS] describe when these monitored objects are deleted. 
+
+zh:只有少数受监控对象的生命周期较短。对于这些对象，它们的生命周期在算法删除时结束。在删除时，将在包含RTCStatsReport对象的单个statsended事件中发出其统计信息的记录，该对象包含同时删除的所有对象的统计信息。后续getStats（）结果中不再提供这些对象的统计信息。 [WEBRTC-STATS]中的对象描述描述了删除这些受监视对象的时间。
