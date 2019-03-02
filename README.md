@@ -24,6 +24,10 @@
 
 请见《WebRTC 官方文档-中文版》[贡献榜](/contributors.md)
 
+## 参考
+
+WebRTC 代码可参考[官网](https://webrtc.googlesource.com/src)或[这个地址](https://github.com/ibaoger/webrtc)
+
 ## 术语表
 
 | 术语 | 注解 |
