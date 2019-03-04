@@ -1,11 +1,11 @@
 # 《WebRTC 官方文档-中文版》贡献历史
 
 
-| 章节 | 认领者 | 进度 |
+| 章节 | 贡献者 | 进度 |
 |------|------|------|
-|1 介绍| plutoless|审校|
-|2 一致性| plutoless|审校|
-|3 术语 | plutoless|审校|
+|1 介绍| [plutoless](https://github.com/plutoless)|已完成|
+|2 一致性|[plutoless](https://github.com/plutoless)|已完成|
+|3 术语 | [plutoless](https://github.com/plutoless)|已完成|
 |4.1 点对点连接| yusicheng|审校|
 |4.2.1 RTCConfiguration字典 | yusicheng|审校|
 |4.2.2 RTCIceCredentialType 枚举 | yusicheng|审校|
