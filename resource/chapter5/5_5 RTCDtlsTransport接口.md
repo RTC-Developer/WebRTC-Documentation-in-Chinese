@@ -1,4 +1,4 @@
-# 5.5 RTCDtlsTransport接口
+## [5.5 RTCDtlsTransport接口](http://w3c.github.io/webrtc-pc/#rtcdtlstransport-interface)
 
 `RTCDtlsTransport`接口允许应用程序获取数据报传输层安全性协议(DTLS)传输的信息，通过此协议，RTP与RTCP数据包被`RTCRtpSender`和`RTCRtpReceiver`对象发送和接收，还有数据通道发送和接收的其它数据，例如STCP数据包。特别是DTLS为底层传输添加了安全性，并且`RTCDtlsTransport`接口允许获取底层传输和安全性的信息。因为需要调用`setLocalDescription()`和`setRemoteDescription()`函数，`RTCDtlsTransport`对象被创建。每个`RTCDtlsTransport`对象代表一个特定的`RTCRtpTransceiver`的RTP或RTCP组件的DTLS传输层，或是一组已经通过BUNDLE协商好的`RTCRtpTransceivers`。
 
