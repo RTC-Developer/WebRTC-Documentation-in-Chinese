@@ -1,24 +1,16 @@
-### [5.6.1 RTCIceParameters Dictionary](http://w3c.github.io/webrtc-pc/#rtciceparameters)
+# 5.6.1 `RTCIceParameters`字典
 
-```
+```java
 dictionary RTCIceParameters {
              DOMString usernameFragment;
              DOMString password;
 };
 ```
 
-**Dictionary RTCIceParameters Members**
+## 字典`RTCIceParameters`成员
 
-*usernameFragment* of type DOMString:
-zh:DOMString类型的usernameFragment
+`DOMString`类型的`usernameFragment`:在[ICE],章节7.1.2.3中定义的ICE用户名片段。
 
-The ICE username fragment as defined in [ICE], Section 7.1.2.3.
+`DOMString`类型的`password`:在[ICE],章节7.1.2.3中定义的ICE密码。
 
-zh:ICE用户名片段，见[ICE]，第7.1.2.3节。
 
-*password* of type DOMString:
-zh:DOMString类型的密码
-
-The ICE password as defined in [ICE], Section 7.1.2.3.
-
-zh:ICE密码，见[ICE]，第7.1.2.3节。
