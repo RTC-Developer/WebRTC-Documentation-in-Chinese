@@ -1,4 +1,4 @@
-# 5.5.1 RTCDtlsFingerprint字典
+### [5.5.1 RTCDtlsFingerprint字典](http://w3c.github.io/webrtc-pc/#rtcdtlsfingerprint)
 
 `RTCDtlsFingerprint`字典包含[RFC4572]中描述的哈希函数算法和证书指纹。
 
