@@ -1,40 +1,16 @@
-### [5.6.3 RTCIceGathererState Enum](http://w3c.github.io/webrtc-pc/#rtcicegathererstate)
+5.6.3 `RTCIceGathererState`枚举
 
-```
+```java
 enum RTCIceGathererState {
     "new",
     "gathering",
     "complete"
 };
 ```
-<table>
-	<tr>
-		<td colspan="2">
-		RTCIceGathererState Enumeration description
-		</td>
-	</tr>
-	<tr>
-		<td>
-		new
-		</td>
-		<td>
-		The RTCIceTransport was just created, and has not started gathering candidates yet.
-		</td>
-	</tr>
-	<tr>
-		<td>
-		gathering
-		</td>
-		<td>
-		The RTCIceTransport is in the process of gathering candidates.
-		</td>
-	</tr>
-	<tr>
-		<td>
-		complete	
-		</td>
-		<td>
-		The RTCIceTransport has completed gathering and the end-of-candidates indication for this transport has been sent. It will not gather candidates again until an ICE restart causes it to restart.
-		</td>
-	</tr>
-</table>
+
+| RTCIceGathererState枚举描述 |                                                              |
+| :-------------------------- | :----------------------------------------------------------- |
+| `new`                       | `RTCIceTransport`刚刚被创建，还未开始收集候选者。            |
+| `gathering`                 | `RTCIceTransport`正在收集候选者。                            |
+| `complete`                  | `RTCIceTransport`已经完成收集，并已发送此传输的候选者终止指示。在ICE重启导致它重启之前，它不会再次收集候选者。 |
+
