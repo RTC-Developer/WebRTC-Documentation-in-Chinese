@@ -1,32 +1,14 @@
-### [5.6.5 RTCIceRole Enum](http://w3c.github.io/webrtc-pc/#rtcicerole)
+# 5.6.5 RTCIceRole枚举
 
-```
+```java
 enum RTCIceRole {
     "controlling",
     "controlled"
 };
 ```
 
-<table>
-	<tr>
-		<td colspan="2">
-		RTCIceRole Enumeration description
-		</td>
-	</tr>
-	<tr>
-		<td>
-		controlling
-		</td>
-		<td>
-		A controlling agent as defined by [ICE], Section 3.
-		</td>
-	</tr>
-	<tr>
-		<td>
-		controlled
-		</td>
-		<td>
-		A controlled agent as defined by [ICE], Section 3.
-		</td>
-	</tr>
-</table>
+| RTCIceRole枚举描述 |                                                  |
+| ------------------ | ------------------------------------------------ |
+| `controlling`      | 一个由[ICE]，第三节中定义的`controlling agent`。 |
+| `controlled`       | 一个由[ICE]，第三节中定义的`controlled agent`。  |
+
