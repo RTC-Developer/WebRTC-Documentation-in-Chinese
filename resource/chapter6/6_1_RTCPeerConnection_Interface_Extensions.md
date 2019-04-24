@@ -1,10 +1,8 @@
-## [6.1 RTCPeerConnection Interface Extensions](http://w3c.github.io/webrtc-pc/#rtcpeerconnection-interface-extensions-0)
+# 6.1 RTCPeerConnection 接口扩展
 
-The Peer-to-peer data API extends the RTCPeerConnection interface as described below.
+对等数据API对RTCPeerConnection接口的扩展如下。
 
-zh:点对点数据API扩展了RTCPeerConnection接口，如下所述。
-
-```
+```java
 partial interface RTCPeerConnection {
     readonly        attribute RTCSctpTransport? sctp;
     RTCDataChannel createDataChannel (USVString label, optional RTCDataChannelInit dataChannelDict);
@@ -12,112 +10,69 @@ partial interface RTCPeerConnection {
 };
 ```
 
-**Attributes**
+## 属性
 
-*sctp* of type RTCSctpTransport, readonly, nullable:
-zh:RTCSctpTransport类型的sctp，readonly，nullable
+`RTCSctpTransport`类型的`sctp`，只读，可以为null,[测试](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCIceTransport.html)：SCTP数据通过SCTP传输发送和接收。如果SCTP还未经过协商，值为null。此属性必须返回存储在[SctpTransport]内部插槽的`RTCSctpTransport`对象。
 
-The SCTP transport over which SCTP data is sent and received. If SCTP has not been negotiated, the value is null. This attribute MUST return the RTCSctpTransport object stored in the [[SctpTransport]] internal slot.
+`EventHandler`类型的`ondatachannel`,[测试](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCPeerConnection-ondatachannel.html)：此event handler的事件类型是`datachannel`。
 
-zh:SCTP传输SCTP数据的发送和接收。如果尚未协商SCTP，则该值为null。该属性必须返回存储在[[SctpTransport]]内部插槽中的RTCSctpTransport对象。
 
-*ondatachannel* of type EventHandler:
-zh:eventHandler类型的ondatachannel
 
-The event type of this event handler is datachannel.
-zh:此事件处理程序的事件类型是datachannel。
-
-**Methods**
+## 方法
 
 `createDataChannel`
 
-Creates a new RTCDataChannel object with the given label. The RTCDataChannelInit dictionary can be used to configure properties of the underlying channel such as  data reliability.
+以给定标签创建一个新的`RTCDataChannel`对象。`RTCDataChannelInit`字典可以被用来配置底层通道属性，例如数据可靠性。
 
-zh:使用给定标签创建新的RTCDataChannel对象。 RTCDataChannelInit字典可用于配置底层通道的属性，例如数据可靠性。
+当`createDataChannel`方法被调用时，用户代理必须运行下列步骤。
 
-When the createDataChannel method is invoked, the user agent MUST run the following steps.
+1.让`connection`成为用来调用方法的`RTCPeerConnection`对象。
 
-zh:当调用createDataChannel方法时，用户代理必须运行以下步骤。
+2.如果`connection`的[IsClosed]插槽为`true`，抛出一个`InvalidStateError`。[测试](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCPeerConnection-createDataChannel.html)
 
-1.  Let connection be the RTCPeerConnection object on which the method is invoked. 
-zh: 让connection成为调用方法的RTCPeerConnection对象。
+3.创建一个`RTCDataChannel`,channel。
 
-2.  If connection's [[IsClosed]] slot is true, throw an InvalidStateError. 
-zh: 如果connection的[[IsClosed]]槽为true，则抛出InvalidStateError。
+4.初始化channel的[DataChannelLable]插槽为第一个参数的值。
 
-3.  Create an RTCDataChannel, channel. 
-zh: 创建一个RTCDataChannel，频道。
+5.如果[DataChannelLabel]长度大于65535bytes,抛出`TypeError`。
 
-4.  Initialize channel's [[DataChannelLabel]] slot to the value of the first argument. 
-zh: 将通道的[[DataChannelLabel]]槽初始化为第一个参数的值。
+6.让options成为第二个参数。
 
-5. If [[DataChannelLabel]] is longer than 65535 bytes, throw a TypeError. 
-zh:如果[[DataChannelLabel]]超过65535字节，则抛出TypeError。
+7.初始化channels的[MaxPacketLifeTime]插槽为option的`maxPacketLifeTime`成员，如果存在，否则为`null`。
 
-6.  Let options be the second argument. 
-zh: 让选项成为第二个参数。
+8.初始化channel的[MaxRetransmits]插槽为option的`maxRetransmits`成员，如果存在，否则为`null`。
 
-7.  Initialize channel's [[MaxPacketLifeTime]] slot to option's maxPacketLifeTime member, if present, otherwise null. 
-zh: 将通道的[[MaxPacketLifeTime]]槽初始化为选项的maxPacketLifeTime成员（如果存在），否则为null。
+9.初始化channel的[Ordered]插槽为option的`ordered`成员。
 
-8.  Initialize channel's [[MaxRetransmits]] slot to option's maxRetransmits member, if present, otherwise null. 
-zh: 将通道的[[MaxRetransmits]]槽初始化为选项的maxRetransmits成员（如果存在），否则为null。
+10.初始化channel的[DataChannelProtocol]插槽为option的`protocol`成员。
 
-9.  Initialize channel's [[Ordered]] slot to option's ordered member. 
-zh: 将通道的[[Ordered]]槽初始化为选项的有序成员。
+11.如果[DataChannelProtocol]长度大于65535bytes，抛出`TypeError`。
 
-10.  Initialize channel's [[DataChannelProtocol]] slot to option's protocol member. 
-zh: 将通道的[[DataChannelProtocol]]槽初始化为选项的协议成员。
+12.初始化channel的[Negotiated]插槽为option的`negotiated`成员。
 
-11. If [[DataChannelProtocol]] is longer than 65535 bytes long, throw a TypeError. 
-zh:如果[[DataChannelProtocol]]长度超过65535字节，则抛出TypeError。
+13.初始化channel的[DataChannelId]插槽为option的`id`成员的值，如果存在并且[Negotiated]为`true`，否则为`null`。
 
-12.  Initialize channel's [[Negotiated]] slot to option's negotiated member. 
-zh: 将频道的[[Negotiated]]插槽初始化为选项的协商成员。
+> NOTE:这意味着如果数据通道在带内协商，id成员将会被忽略。这是有意的。数据通道带内协商应该基于DTLS角色选择ID，如[RTCWEB-DATA-PROTOCOL]中所述。
+>
+> 14.如果[Negotiated]为`true`，并且[DataChannelId]为`null`，抛出`TypeError`。
+>
+> 15.初始化channel的[DATAChannelPriority]插槽为option的`priority`成员。
+>
+> 16.如果[MaxPacketLifeTime]和[MaxRetransmits]属性都被设置(不为null)，抛出`TypeError`。
+>
+> 17.如果一个设置，或是[MaxPacketLifeTime],或是[MaxRetransmits]已经被设置用来表示不可靠模式，并且它的值超过了用户代理支持的最大值，此数值必须被设置为用户代理最大值。
+>
+> 18.如果[DataChannelId]等于65535，比最大允许ID65534长，但是仍然是无符号short值，抛出`TypeError`。
+>
+> 19.如果[DataChannelId]插槽为`null`（由于没有ID被传入`createDataChannel`，或者[Negotiated]为false)，并且SCTP传输DTLS角色已经协商，则初始化[DataChannelId]为用户代理生成的值，根据[RTCWEB-DATA-PROTOCOL]，并且跳过下列步骤。如果不能生成可用ID，或者[DataChannelId]插槽的值被现存`RTCDataChannel`使用，抛出`OperationError`异常。
+>
+> > NOTE:如果在此步骤之后[DataChannelId]插槽为`null`，则在设置`RTCSessionDescription`的过程中确定DTLS角色后，将填充该插槽。
 
-13.  Initialize channel's [[DataChannelId]] slot to the value of option's id member, if it is present and [[Negotiated]] is true, otherwise null.  
-zh: 将通道的[[DataChannelId]]槽初始化为option的id成员的值，如果它存在且[[Negotiated]]为真，否则为null。
-	>Note
-	>
-	>This means the id member will be ignored if the data channel is negotiated in-band; this is intentional. Data channels negotiated in-band should have IDs selected based on the DTLS role, as specified in [RTCWEB-DATA-PROTOCOL]. 
-	>zh:注意这意味着如果数据通道在带内协商，则将忽略id成员;这是故意的。带内协商的数据通道应根据DTLS角色选择ID，如[RTCWEB-DATA-PROTOCOL]中所述。
+20.让transport成为connection的[SctpTransport]插槽。如果[DataChannelId]插槽为`null`，transport处于`connected`状态，并且[DataChannelId]大于等于transport的[MaxChannels]插槽，抛出`OperationError`。
 
-14.  If [[Negotiated]] is true and [[DataChannelId]] is null, throw a TypeError. 
-zh: 如果[[Negotiated]]为true且[[DataChannelId]]为null，则抛出TypeError。
+21.如果channel是在connection上创建的第一个`RTCDataChannel`，更新negotiation-needed标记。
 
-15.  Initialize channel's [[DataChannelPriority]] slot to option's priority member. 
-zh: 将通道的[[DataChannelPriority]]槽初始化为选项的优先级成员。
+22.返回channel并且继续并行执行下列步骤。
 
-16.  If both [[MaxPacketLifeTime]] and [[MaxRetransmits]] attributes are set (not null), throw a TypeError. 
-zh: 如果[[MaxPacketLifeTime]]和[[MaxRetransmits]]属性都设置（非空），则抛出TypeError。
-
-17.  If a setting, either [[MaxPacketLifeTime]] or [[MaxRetransmits]], has been set to indicate unreliable mode, and that value exceeds the maximum value supported by the user agent, the value MUST be set to the user agents maximum value. 
-zh: 如果[[MaxPacketLifeTime]]或[[MaxRetransmits]]设置已设置为指示不可靠模式，并且该值超过用户代理支持的最大值，则必须将值设置为用户代理最大值。
-
-18.  If [[DataChannelId]] is equal to 65535, which is greater than the maximum allowed ID of 65534 but still qualifies as an unsigned short, throw a TypeError. 
-zh: 如果[[DataChannelId]]等于65535（大于允许的最大ID 65534但仍符合无符号短值），则抛出TypeError。
-
-19.  If the [[DataChannelId]] slot is null (due to no ID being passed into createDataChannel, or [[Negotiated]] being false), and the DTLS role of the SCTP transport has already been negotiated, then initialize [[DataChannelId]] to a value generated by the user agent, according to [RTCWEB-DATA-PROTOCOL], and skip to the next step. If no available ID could be generated, or if the value of the [[DataChannelId]] slot is being used by an existing RTCDataChannel, throw an OperationError exception. 
-zh: 如果[[DataChannelId]]插槽为空（由于没有ID传递到createDataChannel，或者[[Negotiated]]为false），并且已经协商了SCTP传输的DTLS角色，则初始化[[DataChannelId]]根据[RTCWEB-DATA-PROTOCOL]，由用户代理生成的值，并跳到下一步。如果无法生成可用ID，或者现有RTCDataChannel正在使用[[DataChannelId]]插槽的值，则抛出OperationError异常。
-
-	>Note 
-	>
-	>If the [[DataChannelId]] slot is null after this step, it will be populated once the DTLS role is determined during the process of  setting an RTCSessionDescription.  
-	>zh:注意如果此步骤后[[DataChannelId]]插槽为空，则在设置RTCSessionDescription的过程中确定DTLS角色后，将填充该插槽。
-
-20.  Let transport be the connection's [[SctpTransport]] slot. 
-	zh:让transport成为连接的[[SctpTransport]]插槽。
-	
-	If the [[DataChannelId]] slot is not null, transport is in the connected state and [[DataChannelId]] is greater or equal to the transport's [[MaxChannels]] slot, throw an OperationError. 
-zh: 如果[[DataChannelId]]插槽不为空，传输处于连接状态且[[DataChannelId]]大于或等于传输的[[MaxChannels]]插槽，则抛出OperationError。
-
-
-21.  If channel is the first RTCDataChannel created on connection, update the negotiation-needed flag for connection. 
-zh: 如果channel是连接时创建的第一个RTCDataChannel，则更新negot-needed标志以进行连接。
-
-22.  Return channel and continue the following steps in parallel. 
-zh: 返回频道并行并行继续以下步骤。
-
-23.  Create channel's associated underlying data transport and configure it according to the relevant properties of channel. 
-zh: 创建通道的关联底层数据传输，并根据通道的相关属性对其进行配置。
+23.创建channel的关联底层数据传输，并且根据相关channel属性配置。
 
