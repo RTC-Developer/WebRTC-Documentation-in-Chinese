@@ -53,20 +53,20 @@ partial interface RTCPeerConnection {
 13.初始化channel的[DataChannelId]插槽为option的`id`成员的值，如果存在并且[Negotiated]为`true`，否则为`null`。
 
 > NOTE:这意味着如果数据通道在带内协商，id成员将会被忽略。这是有意的。数据通道带内协商应该基于DTLS角色选择ID，如[RTCWEB-DATA-PROTOCOL]中所述。
->
-> 14.如果[Negotiated]为`true`，并且[DataChannelId]为`null`，抛出`TypeError`。
->
-> 15.初始化channel的[DATAChannelPriority]插槽为option的`priority`成员。
->
-> 16.如果[MaxPacketLifeTime]和[MaxRetransmits]属性都被设置(不为null)，抛出`TypeError`。
->
-> 17.如果一个设置，或是[MaxPacketLifeTime],或是[MaxRetransmits]已经被设置用来表示不可靠模式，并且它的值超过了用户代理支持的最大值，此数值必须被设置为用户代理最大值。
->
-> 18.如果[DataChannelId]等于65535，比最大允许ID65534长，但是仍然是无符号short值，抛出`TypeError`。
->
-> 19.如果[DataChannelId]插槽为`null`（由于没有ID被传入`createDataChannel`，或者[Negotiated]为false)，并且SCTP传输DTLS角色已经协商，则初始化[DataChannelId]为用户代理生成的值，根据[RTCWEB-DATA-PROTOCOL]，并且跳过下列步骤。如果不能生成可用ID，或者[DataChannelId]插槽的值被现存`RTCDataChannel`使用，抛出`OperationError`异常。
->
-> > NOTE:如果在此步骤之后[DataChannelId]插槽为`null`，则在设置`RTCSessionDescription`的过程中确定DTLS角色后，将填充该插槽。
+
+14.如果[Negotiated]为`true`，并且[DataChannelId]为`null`，抛出`TypeError`。
+
+15.初始化channel的[DATAChannelPriority]插槽为option的`priority`成员。
+
+16.如果[MaxPacketLifeTime]和[MaxRetransmits]属性都被设置(不为null)，抛出`TypeError`。
+
+17.如果一个设置，或是[MaxPacketLifeTime],或是[MaxRetransmits]已经被设置用来表示不可靠模式，并且它的值超过了用户代理支持的最大值，此数值必须被设置为用户代理最大值。
+
+18.如果[DataChannelId]等于65535，比最大允许ID65534长，但是仍然是无符号short值，抛出`TypeError`。
+
+19.如果[DataChannelId]插槽为`null`（由于没有ID被传入`createDataChannel`，或者[Negotiated]为false)，并且SCTP传输DTLS角色已经协商，则初始化[DataChannelId]为用户代理生成的值，根据[RTCWEB-DATA-PROTOCOL]，并且跳过下列步骤。如果不能生成可用ID，或者[DataChannelId]插槽的值被现存`RTCDataChannel`使用，抛出`OperationError`异常。
+
+> NOTE:如果在此步骤之后[DataChannelId]插槽为`null`，则在设置`RTCSessionDescription`的过程中确定DTLS角色后，将填充该插槽。
 
 20.让transport成为connection的[SctpTransport]插槽。如果[DataChannelId]插槽为`null`，transport处于`connected`状态，并且[DataChannelId]大于等于transport的[MaxChannels]插槽，抛出`OperationError`。
 
