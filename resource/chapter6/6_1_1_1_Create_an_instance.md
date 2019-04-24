@@ -1,21 +1,14 @@
-#### [6.1.1.1 Create an instance](http://w3c.github.io/webrtc-pc/#create-an-instance)
+# 6.1.1.1创建一个实例
 
-To create an RTCSctpTransport with an optional initial state, initialState, run the following steps:
+为了创建一个可选初始状态的`RTCSctpTransport`，`initialState`，运行下列步骤。
 
-zh:要创建具有可选初始状态initialState的RTCSctpTransport，请运行以下步骤：
+1.让transport成为一个新的`RTCSctpTransport`对象。
 
-1.  Let transport be a new  RTCSctpTransport object. 
-zh: 让transport成为新的RTCSctpTransport对象。
+2.让transport具有一个[SctpTransportState]内部插槽，初始化为`initialState`，如果提供，否则为`"new"`。
 
-2.  Let transport have a [[SctpTransportState]] internal slot initialized to initialState, if provided, otherwise "new". 
-zh: 让transport有一个[[SctpTransportState]]内部槽初始化为initialState（如果提供），否则为“new”。
+3.让transport具有[MaxMessageSize]内部插槽，运行标记为`update the data max message size`的标签对其初始化。
 
-3.  Let transport have a [[MaxMessageSize]] internal slot and run the steps labeled update the data max message size to initialize it. 
-zh: 让transport有一个[[MaxMessageSize]]内部插槽，并运行标记为update data data message size的步骤来初始化它。
+4.让transport具有[MaxChannels]内部插槽初始化为`null`。
 
-4.  Let transport have a [[MaxChannels]] internal slot initialized to null. 
-zh: 让transport将[[MaxChannels]]内部槽初始化为null。
-
-5.  Return transport. 
-zh: 回程运输。
+5.返回transport。
 
