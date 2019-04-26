@@ -1,44 +1,18 @@
-### [6.1.2 RTCSctpTransportState Enum](http://w3c.github.io/webrtc-pc/#rtcsctptransportstate)
+# 6.1.2 RTCSctpTransportState枚举
 
-RTCSctpTransportState indicates the state of the SCTP transport.
+RTCSctpTransportState表示SCTP传输状态。
 
-zh:RTCSctpTransportState指示SCTP传输的状态。
-
-```
+```java
 enum RTCSctpTransportState {
     "connecting",
     "connected",
     "closed"
 };
 ```
-<table>
-	<tr>
-		<td colspan="2">
-		Enumeration description
-		</td>
-	</tr>
-	<tr>
-		<td>
-		connecting
-		</td>
-		<td>
-		The RTCSctpTransport is in the process of negotiating an association. This is the initial state of the [[SctpTransportState]] slot when an RTCSctpTransport is created.
-		</td>
-	</tr>
-	<tr>
-		<td>
-		connected
-		</td>
-		<td>
-		When the negotiation of an association is completed, a task is queued to update the [[SctpTransportState]] slot to "connected".
-		</td>
-	</tr>
-	<tr>
-		<td>
-		closed
-		</td>
-		<td>
-		A task is queued to update the [[SctpTransportState]] slot to "closed" when a SHUTDOWN or ABORT chunk is received or when the SCTP association has been closed intentionally, such as by closing the peer connection or applying a remote description that rejects data or changes the SCTP port.
-		</td>
-	</tr>
-</table>
+
+| 枚举描述     |                                                              |
+| ------------ | ------------------------------------------------------------ |
+| `connecting` | `RTCSctpTransport`正在协商一个关联。这是当`RTCSctpTransport`被创建时[SctpTransportState]插槽的初始状态。 |
+| `connected`  | 当协商完成后，会出现一个更新[SctpTransportState]插槽为`“connected”`的任务。 |
+| `closed`     | 当接收到SHUTDOWN或者ABORT时，或是SCTP关联被有意关闭，例如通过关闭对等连接或应用拒绝数据，改变SCTP端口的远程描述，[SctpTransportState]插槽的值会被更新为`“closed”`。 |
+
