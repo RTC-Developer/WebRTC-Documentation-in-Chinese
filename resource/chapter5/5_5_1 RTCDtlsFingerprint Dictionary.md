@@ -9,7 +9,7 @@ dictionary RTCDtlsFingerprint {
 };
 ```
 
-### 字典RTCDtlsFingerprint成员
+#### 字典RTCDtlsFingerprint成员
 
 DOMString类型的`算法`:它是哈希函数文本名称注册表[IANA-HASH-FUNCTION]中定义的一个哈希函数算法。
 
