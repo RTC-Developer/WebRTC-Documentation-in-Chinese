@@ -1,40 +1,28 @@
-## [5.5 RTCDtlsTransport 接口](http://w3c.github.io/webrtc-pc/#rtcdtlstransport-interface)
+## 5.5 RTCDtlsTransport接口
 
-The RTCDtlsTransport interface allows an application access to information about the Datagram Transport Layer Security (DTLS) transport over which RTP and RTCP packets are sent and received by RTCRtpSender and RTCRtpReceiver objects, as well other data such as SCTP packets sent and received by data channels. In particular, DTLS adds security to an underlying transport, and the RTCDtlsTransport interface allows access to information about the underlying transport and the security added. RTCDtlsTransport objects are constructed as a result of calls to setLocalDescription() and setRemoteDescription(). Each RTCDtlsTransport object represents the DTLS transport layer for the RTP or RTCP component of a specific RTCRtpTransceiver, or a group of RTCRtpTransceivers if such a group has been negotiated via [BUNDLE].
+`RTCDtlsTransport`接口允许应用程序获取数据报传输层安全性协议(DTLS)传输的信息，通过此协议，RTP与RTCP数据包被`RTCRtpSender`和`RTCRtpReceiver`对象发送和接收，还有数据通道发送和接收的其它数据，例如STCP数据包。特别是DTLS为底层传输添加了安全性，并且`RTCDtlsTransport`接口允许获取底层传输和安全性的信息。因为需要调用`setLocalDescription()`和`setRemoteDescription()`函数，`RTCDtlsTransport`对象被创建。每个`RTCDtlsTransport`对象代表一个特定的`RTCRtpTransceiver`的RTP或RTCP组件的DTLS传输层，或是一组已经通过BUNDLE协商好的`RTCRtpTransceivers`。
 
-zh:RTCDtlsTransport接口允许应用程序访问有关RTCRtpSender和RTCRtpReceiver对象发送和接收RTP和RTCP数据包的数据报传输层安全性（DTLS）传输的信息，以及数据通道发送和接收的其他数据，如SCTP数据包。特别是，DTLS为底层传输增加了安全性，RTCDtlsTransport接口允许访问有关底层传输和添加的安全性的信息。由于调用setLocalDescription（）和setRemoteDescription（），RTCDtlsTransport对象被构造。每个RTCDtlsTransport对象表示特定RTCRtpTransceiver的RTP或RTCP组件的DTLS传输层，或者一组RTCRtpTransceivers（如果已通过[BUNDLE]协商这样的组）。
+> NOTE:现存RTCRtpTransceiver的一个新DTLS关联将会由一个现存RTCDtlsTransport对象代表，它的状态将会对应更新，而不是换做一个新的对象来表示。
 
->NOTE
->
->A new DTLS association for an existing RTCRtpTransceiver will be represented by an existing RTCDtlsTransport object, whose state will be updated accordingly, as opposed to being represented by a new object.
->
->zh:现有RTCRtpTransceiver的新DTLS关联将由现有RTCDtlsTransport对象表示，其状态将相应更新，而不是由新对象表示。
+一个`RTCDtlsTransport`有一个被初始化为`new`的[[DtlsTransportState]]内部插槽，和一个被初始化为空列表的[[RemoteCertificates]]的插槽。
 
-An RTCDtlsTransport has a [[DtlsTransportState]] internal slot initialized to  new and a [[RemoteCertificates]] slot initialized to an empty list.
+当底层DTLS传输产生错误时，例如证书失效，或错误警报，用户代理必须对运行下列步骤的任务排序：
 
-zh:RTCDtlsTransport的[[DtlsTransportState]]内部插槽初始化为new，[[RemoteCertificates]]插槽初始化为空列表。
+1. 让transport成为`RTCDtlsTransport`对象，用来接收状态更新和错误提示。
+2. 如果transport的状态已经为failed，中断这些步骤。
+3. 设置transport的[[DtlsTransportState]]插槽为`failed`。
+4. 使用RTCErrorEvent接口和它的或者为dtlsfailure，或者为fingerprint-failure的errorDetail属性，发起一个名为error的事件，并且其它fields都按照RTCErrorDetailType枚举的那样恰当设置，在transport。
+5. 在transport发起一个名为statechange的事件。
 
-When the underlying DTLS transport needs to update the state of the corresponding RTCDtlsTransport object, the user agent MUST queue a task that runs the following steps:
+当底层DTLS传输由于任何其它原因需要更新相应RTCDtlsTransport对象的状态时，用户代理必须对运行下列步骤的任务排序：
 
-zh:当底层DTLS传输需要更新相应RTCDtlsTransport对象的状态时，用户代理必须对运行以下步骤的任务进行排队：
+1. 让transport成为RTCDtlsTransport对象来接收状态更新。
+2. 让newState成为新状态。
+3. 设置transport的[[DtlsTransportState]]插槽为newState。
+4. 如果newState连接，那么让newRemoteCertificates成为远端使用的证书链，每个证书都使用二进制可辨别编码规则(DER)[X690]进行编码，饼设置transport的[[RemoteCertificates]]插槽为newRemoteCertificates。
+5. 在transport发起一个名为statechange的事件。
 
-1.  Let transport be the  RTCDtlsTransport object to receive the state update. 
-zh: 让transport成为RTCDtlsTransport对象以接收状态更新。
-
-2.  Let newState be the new state. 
-zh: 让newState成为新状态。
-
-3.  Set transport's [[DtlsTransportState]] slot to newState. 
-zh: 将transport的[[DtlsTransportState]]槽设置为newState。
-
-4.  If newState is connected then let newRemoteCertificates be the certificate chain in use by the remote side, with each certificate encoded in binary Distinguished Encoding Rules (DER) [X690], and set transport's [[RemoteCertificates]] slot to newRemoteCertificates. 
-zh: 如果连接了newState，则让newRemoteCertificates成为远程端使用的证书链，每个证书都以二进制可分辨编码规则（DER）[X690]编码，并将传输的[[RemoteCertificates]]槽设置为newRemoteCertificates。
-
-5.  Fire an event named statechange at transport. 
-zh: 在运输中发起名为statechange的事件。
-
-
-```
+```java
 [Exposed=Window] interface RTCDtlsTransport : EventTarget {
     [SameObject]
     readonly        attribute RTCIceTransport       iceTransport;
@@ -45,46 +33,27 @@ zh: 在运输中发起名为statechange的事件。
 };
 ```
 
-**Attributes**
+## 属性
 
-*iceTransport* of type RTCIceTransport, readonly:
-zh:iceTransport类型RTCIceTransport，readonly
+`iceTransport` of type `RTCIceTransport`, readonly:
+iceTransport属性是用来发送接收数据包的底层传输。底层传输在多个活跃的RTCDtlsTransport对象间可能不会被共享。
 
-The iceTransport attribute is the underlying transport that is used to send and receive packets. The underlying transport may not be shared between multiple active RTCDtlsTransport objects.
+`state` of type `RTCDtlsTransportState`, readonly:
+当需要state属性时，它必须返回[[DtlsTransportState]]插槽的值。
 
-zh:iceTransport属性是用于发送和接收数据包的基础传输。多个活动的RTCDtlsTransport对象之间可能不共享底层传输。
+`onstatechange` of type `EventHandler`:
+此eventhandler的事件类型是statechange。
 
-*state* of type RTCDtlsTransportState, readonly:
-zh:RTCDtlsTransportState类型的状态，只读
+`onerror` of type `EventHandler`:
+此eventhandler的事件类型是error。
 
-The state attribute MUST, on getting, return the value of the [[DtlsTransportState]] slot.
+## 方法
 
-zh:获取时，状态属性必须返回[[DtlsTransportState]]槽的值。
+`getRemoteCertificates`返回[[RemoteCertificates]]的值。
 
-*onstatechange* of type EventHandler:
-zh:eventHandler类型的onstatechange
+`RTCDtlsTransportState` 枚举
 
-The event type of this event handler is  statechange. 
-zh: 此事件处理程序的事件类型是statechange。
-
-*onerror* of type EventHandler:
-zh:eventHandler类型的错误
-
-The event type of this event handler is error.
-zh:此事件处理程序的事件类型是错误的。
-
-**Methods**
-
-`getRemoteCertificates`
-zh:getRemoteCertificates
-
-Returns the value of [[RemoteCertificates]]. 
-zh: 返回[[RemoteCertificates]]的值。
-
-
-**RTCDtlsTransportState Enum**
-
-```
+```java
 enum RTCDtlsTransportState {
     "new",
     "connecting",
@@ -93,55 +62,11 @@ enum RTCDtlsTransportState {
     "failed"
 };
 ```
-<table>
-	<tr>
-		<td colspan="2">
-		Enumeration description
-		</td>
-	</tr>
-	<tr>
-		<td>
-		new
-		</td>
-		<td>
-		DTLS has not started negotiating yet.
-		zh:DTLS 还未开始协商。
-		</td>
-	</tr>
-	<tr>
-		<td>
-		connecting
-		</td>
-		<td>
-		DTLS is in the process of negotiating a secure connection and verifying the remote fingerprint.
-		zh：DTLS 正在处理安全连接并确认远端指纹。
-		</td>
-	</tr>
-	<tr>
-		<td>
-		connected	
-		</td>
-		<td>
-		DTLS has completed negotiation of a secure connection and verified the remote fingerprint.
-		zh：DTLS 已经完成安全连接的协商，并确认了远端指纹。
-		</td>
-	</tr>
-	<tr>
-		<td>
-		closed
-		</td>
-		<td>
-		The transport has been closed intentionally as the result of receipt of a close_notify alert, or calling close().
-		zh：在收到 close_notify alert 或 calling close()后，传输结束。
-		</td>
-	</tr>
-	<tr>
-		<td>
-		failed
-		</td>
-		<td>
-		The transport has failed as the result of an error (such as receipt of an error alert or failure to validate the remote fingerprint).
-		zh：当收到 error 时，传输失败（例如收到 error alert 或 远端 fingerprint 认证失败）。
-		</td>
-	</tr>
-<table>
+
+## 枚举描述
+
+`new`: DTLS还没有开始协商。
+`connecting`: DTLS正在协商一个安全连接，并验证远端指纹。
+`connected`: DTLS已经完成安全连接的协商，并已经确认远端指纹。
+`closed`: transport已经关闭，由于收到close_notify警报，或调用close()。
+`failed`: 由于产生了错误，transport已经失败(例如接收到错误警报或未能验证远端指纹)。
