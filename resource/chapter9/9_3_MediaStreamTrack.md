@@ -1,4 +1,4 @@
-9.3 媒体流轨道
+## 9.3 媒体流轨道
 
 `MediaStreamTrack`对象在非本地媒体源案例中对其`MediaStream`的引用（RTP源，每个`RTCRtpReceiver`关联一个`MediaStreamTrack`的情况）总是很强。
 
