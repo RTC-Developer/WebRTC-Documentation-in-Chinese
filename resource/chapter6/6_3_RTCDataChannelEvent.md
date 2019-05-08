@@ -1,4 +1,4 @@
-# 6.3 `RTCDataChannelEvent`
+## 6.3 `RTCDataChannelEvent`
 
 使用`RTCDataChannelEvent`接口的`datachannel`事件。[测试1](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCPeerConnection-ondatachannel.html)
 
@@ -9,13 +9,13 @@ interface RTCDataChannelEvent : Event {
 };
 ```
 
-## 构造函数
+**构造函数**
 
 `RTCDataChannelEvent`
 
 [测试1](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCDataChannelEvent-constructor.html)
 
-## 属性
+**属性**
 
 `RTCDataChannel`类型的channel，只读：channel属性表示与事件关联的`RTCDataChannel`对象。
 
@@ -25,6 +25,6 @@ dictionary RTCDataChannelEventInit : EventInit {
 };
 ```
 
-## 字典`RTCDataChannelEventInit`成员
+**字典`RTCDataChannelEventInit`成员**
 
 `RTCDataChannel`类型的channel，required：将要被事件宣布的`RTCDataChannel`对象。
