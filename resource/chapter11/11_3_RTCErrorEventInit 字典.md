@@ -1,4 +1,4 @@
-# 11.3 `RTCErrorEventInit` 字典
+## 11.3 `RTCErrorEventInit` 字典
 
 ```java
 dictionary RTCErrorEventInit : EventInit {
@@ -6,7 +6,7 @@ dictionary RTCErrorEventInit : EventInit {
 };
 ```
 
-## 11.3.1 字典RTCErrorEventInit成员
+### 11.3.1 字典RTCErrorEventInit成员
 
 `RTCError`类型的`error`,默认为`null`:
 
