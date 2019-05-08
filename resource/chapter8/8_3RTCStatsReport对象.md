@@ -1,4 +1,4 @@
-# 8.3 `RTCStatsReport`对象
+## 8.3 `RTCStatsReport`对象
 
 getStats（）方法以`RTCStatsReport`对象的形式传达成功的结果。 `RTCStatsReport`对象是标识被检查对象（`RTCStats`实例中的`id`属性）的字符串之间的映射，以及它们对应的`RTCStats`派生的字典。
 
