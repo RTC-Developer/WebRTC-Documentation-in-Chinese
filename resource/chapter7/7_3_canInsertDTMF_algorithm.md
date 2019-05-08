@@ -1,4 +1,4 @@
-# 7.3 canInsertDTMF算法
+## 7.3 canInsertDTMF算法
 
 为了确定是否可以为RTCDTMFSender实例dtmfSender发送DTMF,用户代理必须对运行以下步骤的任务排队：
 
