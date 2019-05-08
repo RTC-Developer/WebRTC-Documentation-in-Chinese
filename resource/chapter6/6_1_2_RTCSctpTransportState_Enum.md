@@ -1,4 +1,4 @@
-# 6.1.2 RTCSctpTransportState枚举
+### 6.1.2 RTCSctpTransportState枚举
 
 RTCSctpTransportState表示SCTP传输状态。
 
