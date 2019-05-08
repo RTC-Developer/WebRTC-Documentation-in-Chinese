@@ -1,4 +1,4 @@
-# 8.5 `RTCStatsEvent`
+## 8.5 `RTCStatsEvent`
 
 `statsended`事件使用`RTCStatsEvent`。
 
@@ -10,11 +10,11 @@
           };
 ```
 
-## 构造函数
+**构造函数**
 
 `RTCStatsEvent`
 
-## 属性
+**属性**
 
 RTCStatsReport类型的`report`:`report`属性包含RTCStats对象的相应子类的stats对象，给出生命周期结束时受监视对象的统计信息的值。
 
@@ -24,7 +24,7 @@ dictionary RTCStatsEventInit : EventInit {
           };
 ```
 
-## 字典RTCStatsEventInit成员
+**字典RTCStatsEventInit成员**
 
 RTCStatsReport类型的`report`，必需的:
 
