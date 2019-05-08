@@ -1,4 +1,4 @@
-# 5.7 `RTCTrackEvent`
+## 5.7 `RTCTrackEvent`
 
 `track`事件使用`RTCTrackEvent`接口。
 
@@ -13,11 +13,11 @@ interface RTCTrackEvent : Event {
 };
 ```
 
-## 构造函数
+**构造函数**
 
 `RTCTrackEvent`(https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCTrackEvent-constructor.html)
 
-## 属性
+**属性**
 
 `RTCRtpReceiver`类型的`receiver`，只读：`receiver`属性表示与事件关联的`RTCRtpReceiver`对象。
 
@@ -36,7 +36,7 @@ dictionary RTCTrackEventInit : EventInit {
 };
 ```
 
-## 字典`RTCTrackEventInit`成员
+**字典`RTCTrackEventInit`成员**
 
 `RTCRtpReceiver`类型的`receiver`
 
