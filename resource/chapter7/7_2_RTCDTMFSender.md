@@ -1,4 +1,4 @@
-# 7.2 RTCDTMFSender
+## 7.2 RTCDTMFSender
 
 为了创建RTCDTMFSender，用户代理必须运行以下步骤：
 
@@ -16,7 +16,7 @@
 };
 ```
 
-## 属性
+**属性**
 
 事件处理程序类型的`ontonechange`:此事件处理程序的事件类型时候tonechange。[测试1](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCDTMFSender-ontonechange-long.https.html)
 
@@ -24,7 +24,7 @@ boolean类型的`canInsertDTMF`,只读：不管`RTCDTMFSender` dtmfSender是否�
 
 DOMString类型的`toneBuffer`，只读：`toneBuffer`属性必须返回剩余需要播放的tone列表。关于此列表的语法，内容，解释，查看`insertDTMF`。
 
-## 方法
+**方法**
 
 `insertDTMF`：`RTCDTMFSender`对象的`insertDTMF`方法用于发送DTMF音调。
 
