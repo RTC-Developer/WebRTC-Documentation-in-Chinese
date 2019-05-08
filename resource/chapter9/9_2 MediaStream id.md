@@ -1,6 +1,6 @@
-# 9.2 媒体流
+## 9.2 媒体流
 
-## 9.2.1 id
+### 9.2.1 id
 
 `MediaStream`指定的id属性返回了对流唯一的id，这样`RTCPeerConnection API`的远程端就可以识别媒体流。
 
