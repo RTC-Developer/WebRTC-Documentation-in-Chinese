@@ -1,165 +1,79 @@
-## [5.6 RTCIceTransport Interface](http://w3c.github.io/webrtc-pc/#rtcicetransport)
+## 5.6 `RTCIceTransport`接口
 
-The RTCIceTransport interface allows an application access to information about the ICE transport over which packets are sent and received. In particular, ICE manages peer-to-peer connections which involve state which the application may want to access. RTCIceTransport objects are constructed as a result of calls to setLocalDescription() and setRemoteDescription(). The underlying ICE state is managed by the ICE agent; as such, the state of an RTCIceTransport changes when the ICE Agent provides indications to the user agent as described below. Each RTCIceTransport object represents the ICE transport layer for the RTP or RTCP component of a specific RTCRtpTransceiver, or a group of RTCRtpTransceivers if such a group has been negotiated via [BUNDLE].
+`RTCIceTransport`接口允许应用程序获取有关用来发送接收数据包的ICE传输的信息。特别的，ICE管理对等连接，它牵涉到应用程序可能获取的状态。由于需要调用`setLocalDescription()`和`setRemoteDescription()`,`RTCIceTransport`对象被创建。底层ICE状态由ICE代理管理，所以当ICE代理向用户代理提供指示时，`RTCIceTransport`的状态就会改变。每个`RTCIceTransport`对象代表一个特定`RTCRtpTransceiver`的RTP或RTCP组件的ICE传输层，或者是一组已经通过[BUNDLE]协商的`RTCRtpTransceiver`。
 
-zh:RTCIceTransport接口允许应用程序访问有关发送和接收数据包的ICE传输的信息。特别地，ICE管理对等连接，其涉及应用可能想要访问的状态。由于调用setLocalDescription（）和setRemoteDescription（），RTCIceTransport对象被构造。底层ICE状态由ICE代理管理;因此，当ICE代理向用户代理提供指示时，RTCIceTransport的状态改变，如下所述。每个RTCIceTransport对象表示特定RTCRtpTransceiver的RTP或RTCP组件的ICE传输层，或者一组RTCRtpTransceivers（如果已通过[BUNDLE]协商这样的组）。
+> NOTE:现存`RTCRtpTranceiver`的ICE重启将会由现存`RTCIceTransport`对象表示，它的状态将会被对应更新，而不是由新对象表示。
 
->NOTE
->
->An ICE restart for an existing RTCRtpTransceiver will be represented by an existing RTCIceTransport object, whose state will be updated accordingly, as opposed to being represented by a new object.
+当ICE代理表示它将为一个`RTCIceTransport`收集一系列的候选者时，用户代理必须对运行以下步骤的任务进行排序:
 
->zh:现有RTCRtpTransceiver的ICE重新启动将由现有的RTCIceTransport对象表示，其状态将相应更新，而不是由新对象表示。
+1. 让connection成为与这个ICE代理关联的`RTCPeerConnection`对象。
+2. 如果connection的[[IsClosed]]插槽为`true`，中断这些步骤。
+3. 让transport成为RTCIceTransport。
+4. 设置transport的[[IceGathererState]]插槽为`gathering`。
+5. 在transport发起一个名为`gatheringstatechange`的事件。
+6. 更新connection的ICE收集状态。
 
-When the ICE Agent indicates that it began gathering a generation of candidates for an RTCIceTransport, the user agent MUST queue a task that runs the following steps:
+当ICE代理表示它已经成功收集了一个`RTCIceTransport`的一系列候选者时，用户代理必须对运行以下步骤的任务进行排序：
 
-zh:当ICE代理指示它开始为RTCIceTransport收集一代候选者时，用户代理必须排队运行以下步骤的任务：
+1. 让connection成为与ICE代理关联的`RTCPeerConnection`对象。
 
-1.  Let connection be the RTCPeerConnection object associated with this ICE Agent. 
-zh: 让connection成为与此ICE代理关联的RTCPeerConnection对象。
+2. 如果connection的[[IsClosed]]插槽为`true`，中断这些步骤。
 
-2.  If connection's [[IsClosed]] slot is true, abort these steps. 
-zh: 如果connection的[[IsClosed]]插槽为true，则中止这些步骤。
+3. 让transport成为`RTCIceTransport`。
 
-3.  Let transport be the RTCIceTransport for which candidate gathering began. 
-zh: 让transport成为开始候选人聚会的RTCIceTransport。
+4. 让`newCandidate`成为创建一个RTCIceCandidate的结果，伴随一个新字典，它的`sdpMid`和`sdpMLineIndex`都被设置为与此`RTCIceTransport`相关联的值，`usernameFrangment`被设置为收集完成的candidates的用户名片段，`candidate`被设置为空字符串。
 
-4.  Set transport's [[IceGathererState]] slot to gathering. 
-zh: 将transport的[[IceGathererState]]槽设置为收集。
+5. 使用`RTCPeerConnectionIceEvent`接口发起一个名为`icecandidate`的事件，并且candidate属性在connection被设置为`newCandidate`。
 
-5.  Fire an event named gatheringstatechange at transport. 
-zh: 在运输中发起一个名为gatherstatechange的事件。
+6. 如果另一代candidates还在被收集，中断这些步骤。
 
-6.  Update the ICE gathering state of connection. 
-zh: 更新ICE收集连接状态。
+   > NOTE:这可能会出现，如果在ICE代理还在收集上一代的candidates时，开始ICE重启，可能会发生这种情况。
 
-When the ICE Agent indicates that it finished gathering a generation of candidates for an RTCIceTransport, the user agent MUST queue a task that runs the following steps:
+7. 设置transport的[[IceGathererState]]插槽为complete。
 
-zh:当ICE代理指示它已完成为RTCIceTransport收集一代候选项时，用户代理必须对运行以下步骤的任务进行排队：
+8. 在transport发起一个名为`gatheringstatechange`的事件。
 
-1.  Let connection be the RTCPeerConnection object associated with this ICE Agent. 
-zh: 让connection成为与此ICE代理关联的RTCPeerConnection对象。
+9. 更新connection的ICE收集状态。
 
-2.  If connection's [[IsClosed]] slot is true, abort these steps. 
-zh: 如果connection的[[IsClosed]]插槽为true，则中止这些步骤。
+当用户代理表示新的ICE candidate可用于`RTCIceTransport`，或者从ICE候选者池中选择一个，或者从头开始收集它，用户代理必须对运行以下步骤的任务进行排序：
 
-3.  Let transport be the RTCIceTransport for which candidate gathering finished. 
-zh: 让transport成为候选聚会完成的RTCIceTransport。
+1. 让`candidate`成为可用的ICE候选者。
+2. 让connection成为与这个ICE代理相关联的`RTCPeerConnection`对象。
+3. 如果connection的[[IsClosed]]插槽为`true`，中断这些步骤。
+4. 让transport成为可供候选者使用的`RTCIceTransport`。
+5. 如果connection.[[PendingLocalDescription]]不是`null`，并且表示收集候选者的ICE generation，向connection.[[PendingLocalDesciption]].sdp中添加候选者。
+6. 如果connection.[[CurrentLocalDescription]]不是`null`，并且表示收集候选者的ICE generation，向connection.[[CurrentLocalDescription]].sdp中添加候选者。
+7. 让`newCandidate`成为创建一个RTCIceCandidate的结果，伴随一个新字典，它的`sdpMid`和`sdpMLineIndex`都被设置为与此`RTCIceTransport`相关联的值，`usernameFrangment`被设置为候选者的用户名片段，并且`candidate`被设置为使用`candidate-attribute`语法编码的字符串来代表`candidate`。
+8. 将`newCandidate`添加到transport的本地候选者集合中。
+9. 使用`RTCPeerConnectionIceEvent`接口发起一个名为`icecandidate`的事件，并且候选者属性在`connection`被设置为`newCandidate`。
 
-4.  Create an RTCIceCandidate instance newCandidate, with sdpMid and sdpMLineIndex set to the values associated with this RTCIceTransport, with usernameFragment set to the username fragment of the generation of candidates for which gathering finished, with candidate set to an empty string, and with all other nullable members set to null. 
-zh: 创建一个RTCIceCandidate实例newCandidate，将sdpMid和sdpMLineIndex设置为与此RTCIceTransport关联的值，将usernameFragment设置为收集完成的候选生成的用户名片段，候选设置为空字符串，以及所有其他可空成员设为null。
+当ICE代理表示`RTCIceTransport`的`RTCIceTransportState`已经改变时，用户代理必须对运行以下步骤的任务进行排序:
 
-5.  Fire an event named icecandidate using the RTCPeerConnectionIceEvent interface with the candidate attribute set to newCandidate at connection. 
-zh: 使用RTCPeerConnectionIceEvent接口触发名为icecandidate的事件，其候选属性在连接时设置为newCandidate。
+1. 让`connection`成为与这个ICE代理相关联的`RTCPeerConnection`对象。
+2. 如果`connection`的[[IsClosed]]插槽为`true`，中断这些步骤。
+3. 让`transport`成为状态正在改变的`RTCIceTransport`。
+4. 让`newState`成为新的被指示的`RTCIceTransportState`。
+5. 设置`transport`的[[IceTransportState]]插槽为`newState`。
+6. 在`transport`发起一个名为`statechange`的事件。
+7. 更新`connection`的ICE连接状态。
+8. 更新`connection`的连接状态。
 
-6.  If another generation of candidates is still being gathered, abort these steps.  
-zh: 如果还在收集另一代候选人，请中止这些步骤。
+当ICE代理表示选定的一对`RTCIceTransport`候选者已经改变时，用户代理必须对运行以下步骤的任务进行排序：
 
-	>Note
-	> This may occur if an ICE restart is initiated while the ICE agent is still gathering the previous generation of candidates. 
-	>zh: 注意如果在ICE代理仍在收集上一代候选项时启动ICE重新启动，则可能会发生这种情况。
+1. 让`connection`成为与这个ICE代理相关联的`RTCPeerConnection`对象。
+2. 如果`connection`的[[IsClosed]]插槽为`true`，中断这些步骤。
+3. 让`transport`成为选定候选者对正在改变的`RTCIceTransport`。
+4. 让`newCandidatePair`成为新常见的`RTCIceCandidatePair`，如果选定了一个，表示选择正确，否则为null。
+5. 设置`transport`的[[SelectedCandidatePair]]插槽为`newCandidatePair`。
+6. 在`transport`发起一个名为`selectedcandidatepairchange`的事件。
 
+一个`RTCIceTransport`对象具有下列内部插槽：
 
-7.  Set transport's [[IceGathererState]] slot to complete. 
-zh: 设置传输的[[IceGathererState]]插槽即可完成。
+- [[IceTransportState]]初始化为`new`
+- [[IceGathererState]]初始化为`new`
+- [[SelectedCandidatePair]]初始化为`null`
 
-8.  Fire an event named gatheringstatechange at transport. 
-zh: 在运输中发起一个名为gatherstatechange的事件。
-
-9.  Update the ICE gathering state of connection. 
-zh: 更新ICE收集连接状态。
-
-
-When the ICE Agent indicates that a new ICE candidate is available for an RTCIceTransport, either by taking one from the ICE candidate pool or gathering it from scratch, the user agent MUST queue a task that runs the following steps:
-
-zh:当ICE代理指示新的ICE候选者可用于RTCIceTransport时，通过从ICE候选池中取一个或从头开始收集它，用户代理必须排队运行以下步骤的任务：
-
-1.  Let connection be the RTCPeerConnection object associated with this ICE Agent. 
-zh: 让connection成为与此ICE代理关联的RTCPeerConnection对象。
-
-2.  If connection's [[IsClosed]] slot is true, abort these steps. 
-zh: 如果connection的[[IsClosed]]插槽为true，则中止这些步骤。
-
-3.  Let transport be the RTCIceTransport for which this candidate is being made available. 
-zh: 让transport成为可供该候选人使用的RTCIceTransport。
-
-4.  If connection.[[PendingLocalDescription]] is not null, and represents the ICE generation for which candidate was gathered, add candidate to the connection.[[PendingLocalDescription]].sdp. 
-zh: 如果connection。[[PendingLocalDescription]]不为null，并且表示为其收集候选者的ICE生成，则将候选添加到连接。[[PendingLocalDescription]]。sdp。
-
-5.  If connection.[[CurrentLocalDescription]] is not null, and represents the ICE generation for which candidate was gathered, add candidate to the connection.[[CurrentLocalDescription]].sdp. 
-zh: 如果连接。[[CurrentLocalDescription]]不为null，并且表示为其收集候选者的ICE生成，则将候选添加到连接。[[CurrentLocalDescription]]。sdp。
-
-6.  Create an RTCIceCandidate instance to represent the candidate. Let newCandidate be that object. 
-zh: 创建一个RTCIceCandidate实例来表示候选者。让newCandidate成为那个对象。
-
-7.  Add newCandidate to transport's set of local candidates. 
-zh: 将newCandidate添加到transport的本地候选者集。
-
-8.  Fire an event named icecandidate using the RTCPeerConnectionIceEvent interface with the candidate attribute set to newCandidate at connection. 
-zh: 使用RTCPeerConnectionIceEvent接口触发名为icecandidate的事件，其候选属性在连接时设置为newCandidate。
-
-When the ICE Agent indicates that the RTCIceTransportState for an RTCIceTransport has changed, the user agent MUST queue a task that runs the following steps:
-
-zh:当ICE代理指示RTCIceTransport的RTCIceTransportState已更改时，用户代理必须对运行以下步骤的任务进行排队：
-
-1.  Let connection be the RTCPeerConnection object associated with this ICE Agent. 
-zh: 让connection成为与此ICE代理关联的RTCPeerConnection对象。
-
-2.  If connection's [[IsClosed]] slot is true, abort these steps. 
-zh: 如果connection的[[IsClosed]]插槽为true，则中止这些步骤。
-
-3.  Let transport be the RTCIceTransport whose state is changing. 
-zh: 让transport成为状态正在发生变化的RTCIceTransport。
-
-4.  Let newState be the new indicated RTCIceTransportState. 
-zh: 让newState成为新指示的RTCIceTransportState。
-
-5.  Set transport's [[IceTransportState]] slot to newState. 
-zh: 将transport的[[IceTransportState]]槽设置为newState。
-
-6.  Fire an event named statechange at transport. 
-zh: 在运输中发起名为statechange的事件。
-
-7.  Update the ICE connection state of connection.  
-zh: 更新ICE连接状态。
-
-8.  Update the connection state of connection. 
-zh: 更新连接的连接状态。
-
-When the ICE Agent indicates that the selected candidate pair for an RTCIceTransport has changed, the user agent MUST queue a task that runs the following steps:
-
-zh:当ICE代理指示RTCIceTransport的所选候选对已更改时，用户代理必须对运行以下步骤的任务进行排队：
-
-1.  Let connection be the RTCPeerConnection object associated with this ICE Agent. 
-zh: 让connection成为与此ICE代理关联的RTCPeerConnection对象。
-
-2.  If connection's [[IsClosed]] slot is true, abort these steps. 
-zh: 如果connection的[[IsClosed]]插槽为true，则中止这些步骤。
-
-3.  Let transport be the RTCIceTransport whose selected candidate pair is changing. 
-zh: 让transport成为所选候选对正在变化的RTCIceTransport。
-
-4.  Let newCandidatePair be a newly created RTCIceCandidatePair representing the indicated pair if one is selected, and null otherwise. 
-zh: 让newCandidatePair成为新创建的RTCIceCandidatePair，如果选择了一个，则表示指示的对，否则为null。
-
-5.  Set transport's [[SelectedCandidatePair]] slot to newCandidatePair. 
-zh: 将transport的[[SelectedCandidatePair]]槽设置为newCandidatePair。
-
-6.  Fire an event named selectedcandidatepairchange at transport. 
-zh: 在传输时触发名为selectedcandidatepairchange的事件。
-
-
-An RTCIceTransport object has the following internal slots:
-
-zh:RTCIceTransport对象具有以下内部插槽：
-
-* [[IceTransportState]] initialized to  new
-zh:[[IceTransportState]]初始化为新的
-* [[IceGathererState]] initialized to  new
-zh:[[IceGathererState]]初始化为新的
-* [[SelectedCandidatePair]] initialized to null
-zh:[[SelectedCandidatePair]]初始化为null
-
-```
+```java
 [Exposed=Window] interface RTCIceTransport : EventTarget {
     readonly        attribute RTCIceRole           role;
     readonly        attribute RTCIceComponent      component;
@@ -176,77 +90,34 @@ zh:[[SelectedCandidatePair]]初始化为null
 };
 ```
 
-**Attributes**
 
-*role* of type RTCIceRole, readonly:
-zh:RTCIceRole类型的作用，readonly
 
-The role attribute MUST return the ICE role of the transport.
+**属性**
 
-zh:role属性必须返回传输的ICE角色。
+`RTCIceRole`类型的`role`，只读：`role`属性必须返回transport的ICE role。
 
-*component* of type RTCIceComponent, readonly:
-zh:RTCIceComponent类型的组件，只读
+`RTCIceComponent`类型的`component`，只读：`component`属性必须返回`transport`的ICE组件。当RTCP mux被使用时，单一的`RTCIceTransport`同时传输RTP和RTCP，并且`component`被设置为`RTP`。
 
-The component attribute MUST return the ICE component of the transport. When RTCP mux is used, a single RTCIceTransport transports both RTP and RTCP and component is set to "RTP".
+`RTCIceTransportState`类型的`state`，只读：当需要获得`state`属性时，它必须返回[[IceTransportState]]插槽的值。
 
-zh:组件属性必须返回传输的ICE组件。使用RTCP mux时，单个RTCIceTransport传输RTP和RTCP，组件设置为“RTP”。
+`RTCIceGathererState`类型的`gatheringState`，只读：当获取`gathering state`属性时，它必须返回[[IceGathererState]]插槽的值。
 
-*state* of type RTCIceTransportState, readonly:
-zh:RTCIceTransportState类型的状态，只读
+`EventHandler`类型的`onstatechange`:此event handler，当`RTCIceTransportstate`类型改变时，必须启动。
 
-The state attribute MUST, on getting, return the value of the [[IceTransportState]] slot.
+`EventHandler`类型的`ongatheringstatechange`：此event handler，当`RTCIceTransportgatheringstate`改变时，必须启动。
 
-zh:获取时，状态属性必须返回[[IceTransportState]]槽的值。
+`EventHandler`类型的`onselectedcandidatepairchange`：此event handler，当`RTCIceTransport`选定的候选者对改变时，必须启动。
 
-*gatheringState* of type RTCIceGathererState, readonly:
-zh:只读取RTCIceGathererState类型的状态，只读
+**方法**
 
-The gathering state attribute MUST, on getting, return the value of the [[IceGathererState]] slot.
+`getLocalCandidates`:返回一个序列，描述为`RTCIceTransport`收集并在`onicecandidate`中发送的本地候选者。
 
-zh:收集状态属性必须在获取时返回[[IceGathererState]]槽的值。
+`getRemoteCandidates`:返回一个序列，描述通过`addIceCandidate()`，由`RTCIceTransport`接收的ICE候选者。
 
-*onstatechange* of type EventHandler:
-zh:eventHandler类型的onstatechange
+> NOTE:`getRemoteCandidates`不会暴露peer reflexive candidates，因为它们不是通过`addIceCandidate()`接收的。
 
-This event handler, of event handler event type statechange, MUST be fired any time the RTCIceTransport state changes. 
-zh: 事件处理程序事件类型statechange的事件处理程序必须在RTCIceTransport状态更改时触发。
+`getSelectedCandidatePair`:返回用来发送数据包的选定候选者对。此方法必须返回[[SelectedCandidatePair]]插槽的值。
 
-*ongatheringstatechange* of type EventHandler:
-zh:hoststate交换EventHandler类型
+`getLocalParameters`:返回通过`setLocalDescription`由`RTCIceTransport`接收的本地ICE参数，如果参数未被接收，则为`null`。
 
-This event handler, of event handler event type gatheringstatechange, MUST be fired any time the RTCIceTransportgathering state changes. 
-zh: 事件处理程序事件类型gatherstatechange的事件处理程序必须在RTCIceTransportgathering状态更改时触发。
-
-*onselectedcandidatepairchange* of type EventHandler:
-zh:onselectedcandidatepairchange或类型EventHandler
-
-This event handler, of event handler event type selectedcandidatepairchange, MUST be fired any time the RTCIceTransport's selected candidate pair changes.
-zh:事件处理程序事件类型selectedcandidatepairchange的事件处理程序必须在RTCIceTransport的所选候选对更改时触发。
-
-**Methods**
-
-`getLocalCandidates`
-
-Returns a sequence describing the local ICE candidates gathered for this RTCIceTransport and sent in onicecandidate 
-zh: 返回一个序列，描述为此RTCIceTransport收集并在onicecandidate中发送的本地ICE候选项
-
-`getRemoteCandidates`
-
-Returns a sequence describing the remote ICE candidates received by this RTCIceTransport via addIceCandidate() 
-zh: 返回描述此RTCIceTransport通过addIceCandidate（）接收的远程ICE候选的序列
-
-`getSelectedCandidatePair`
-
-Returns the selected candidate pair on which packets are sent. This method MUST return the value of the [[SelectedCandidatePair]] slot. 
-zh: 返回发送数据包的选定候选对。此方法必须返回[[SelectedCandidatePair]]槽的值。
-
-`getLocalParameters`
-
-Returns the local ICE parameters received by this RTCIceTransport via setLocalDescription, or null if the parameters have not yet been received. 
-zh: 返回此RTCIceTransport通过setLocalDescription接收的本地ICE参数，如果尚未接收参数，则返回null。
-
-`getRemoteParameters`
-
-Returns the remote ICE parameters received by this RTCIceTransport via setRemoteDescription or null if the parameters have not yet been received. 
-zh: 返回此RTCIceTransport通过setRemoteDescription接收的远程ICE参数，如果尚未接收参数，则返回null。
+`getRemoteParameters`:返回通过`setRemoteDescription`，由`RTCIceTransport`接收的ICE远程参数，如果参数未被接收，则为`null`。
