@@ -1,4 +1,4 @@
-# 8.2 RTCPeerConnection接口扩展
+## 8.2 RTCPeerConnection接口扩展
 
 统计API对RTCPeerConnection接口的扩展如下。
 
@@ -9,7 +9,7 @@ partial interface RTCPeerConnection {
           };
 ```
 
-## 属性
+**属性**
 
 事件处理程序类型的`onstatsended`:
 
@@ -23,7 +23,7 @@ partial interface RTCPeerConnection {
    2. 对于每个受监视对象，使用上面针对该受监视对象收集的统计信息创建新的相关统计信息对象对象，并将其添加到报告中。
    3. 使用`RTCStatsEvent`接口发起一个名为`statsended`的事件，在connection将`report`属性设置为report。
 
-## 方法
+**方法**
 
 `getStats`
 
