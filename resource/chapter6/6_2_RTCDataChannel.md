@@ -1,4 +1,4 @@
-# 6.2 `RTCDataChannel`
+## 6.2 `RTCDataChannel`
 
 `RTCDataChannel`接口表示两个对等体之间的双向数据信道。 `RTCDataChannel`是通过`RTCPeerConnection`对象上的工厂方法创建的。浏览器之间发送的消息在[RTCWEB-DATA]和[RTCWEB-DATA-PROTOCOL]中描述。
 
@@ -131,7 +131,7 @@
 };
 ```
 
-## 属性
+**属性**
 
 USVString类型的`label`，只读:label属性表示可用于将此`RTCDataChannel`对象与其他`RTCDataChannel`对象区分开的标签。允许脚本使用相同的标签创建多个`RTCDataChannel`对象。获取时，属性必须返回[[DataChannelLabel]]槽的值。[测试1](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCPeerConnection-createDataChannel.html)
 
@@ -169,7 +169,7 @@ DOMString类型的`binaryType`:获取时，`binaryType`属性必须返回上次�
 
 此属性控制二进制数据如何向脚本公开。有关更多信息，请参阅[WEBSOCKETS-API]。
 
-## 方法
+**方法**
 
 `close`:
 
@@ -247,7 +247,7 @@ dictionary RTCDataChannelInit {
 };
 ```
 
-字典`RTCDataChannelInit`成员
+**字典`RTCDataChannelInit`成员**
 
 boolean类型的`ordered`，默认为true:如果设置为false，则允许数据不按顺序传送。默认值为true，保证数据按顺序传递。
 
