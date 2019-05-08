@@ -1,4 +1,4 @@
-# 6.1 RTCPeerConnection 接口扩展
+## 6.1 RTCPeerConnection 接口扩展
 
 对等数据API对RTCPeerConnection接口的扩展如下。
 
@@ -10,7 +10,7 @@ partial interface RTCPeerConnection {
 };
 ```
 
-## 属性
+**属性**
 
 `RTCSctpTransport`类型的`sctp`，只读，可以为null,[测试](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCIceTransport.html)：SCTP数据通过SCTP传输发送和接收。如果SCTP还未经过协商，值为null。此属性必须返回存储在[SctpTransport]内部插槽的`RTCSctpTransport`对象。
 
@@ -18,7 +18,7 @@ partial interface RTCPeerConnection {
 
 
 
-## 方法
+**方法**
 
 `createDataChannel`
 
