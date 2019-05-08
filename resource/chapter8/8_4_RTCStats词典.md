@@ -14,7 +14,7 @@ dictionary RTCStats {
 };
 ```
 
-## 字典`RTCStats`成员
+**字典`RTCStats`成员**
 
 DOMHighResTimeStamp类型的`timestamp`:与此对象关联的DOMHighResTimeStamp [HIGHRES-TIME]类型的时间戳。时间相对于UNIX纪元（1970年1月1日，UTC）。对于来自远程源（例如，来自接收的RTCP数据包）的统计，时间戳表示信息到达本地端点的时间。如果适用，可以在`RTCStats`派生的字典中的附加字段中找到远程时间戳。
 
