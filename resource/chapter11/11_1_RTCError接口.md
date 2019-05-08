@@ -18,7 +18,7 @@
 };
 ```
 
-## 11.1.1 构造函数
+### 11.1.1 构造函数
 
 `RTCError`
 
@@ -38,7 +38,7 @@
 
 6. 返回e。
 
-## 11.1.2 属性
+### 11.1.2 属性
 
 RTCErrorDetailType类型的`errorDetail`，只读：针对出现错误类型的WebRTC特定错误代码。
 
@@ -56,7 +56,7 @@ unsigned long类型的`receiveAlert`,只读，可以为null：如果`errorDetail
 
 unsigned long类型的`sentAlert`，只读，可以为null：如果`errorDetail`是`"dtls-failure"，并且发送了`致命的DTLS警报，这是发送的DTLS警报值。
 
-## `RTCErrorInit `字典
+**RTCErrorInit字典**
 
 ```java
 dictionary RTCErrorInit {
@@ -71,7 +71,7 @@ dictionary RTCErrorInit {
 
 `RTCErrorInit`的`errorDetail`,`sdpLineNumber`,`httpRequestStatusCode`,`sctpCauseCode`,`receivedAlert`和`sentAlert`成员与`RTCError`的同名属性具有相同的定义。
 
-## 11.1.3 字典`RTCError`成员
+### 11.1.3 字典`RTCError`成员
 
 RTCErrorDetailType类型的`errorDetail`，必需的：查看`RTCError`的`errorDetail`。
 
@@ -85,7 +85,7 @@ unsigned long类型的`receivedAlert`:查看`RTCError`的`receivedAlert`。
 
 unsigned long类型的`sentAlert`：查看`RTCError`的`sentAlert`。
 
-## 11.1.4 `RTCErrorDetailType`枚举
+### 11.1.4 `RTCErrorDetailType`枚举
 
 ```java
 enum RTCErrorDetailType {
