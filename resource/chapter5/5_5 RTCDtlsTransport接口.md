@@ -33,7 +33,7 @@
 };
 ```
 
-## 属性
+**属性**
 
 `iceTransport` of type `RTCIceTransport`, readonly:
 iceTransport属性是用来发送接收数据包的底层传输。底层传输在多个活跃的RTCDtlsTransport对象间可能不会被共享。
@@ -47,7 +47,7 @@ iceTransport属性是用来发送接收数据包的底层传输。底层传输�
 `onerror` of type `EventHandler`:
 此eventhandler的事件类型是error。
 
-## 方法
+**方法**
 
 `getRemoteCertificates`返回[[RemoteCertificates]]的值。
 
@@ -63,10 +63,12 @@ enum RTCDtlsTransportState {
 };
 ```
 
-## 枚举描述
 
-`new`: DTLS还没有开始协商。
-`connecting`: DTLS正在协商一个安全连接，并验证远端指纹。
-`connected`: DTLS已经完成安全连接的协商，并已经确认远端指纹。
-`closed`: transport已经关闭，由于收到close_notify警报，或调用close()。
-`failed`: 由于产生了错误，transport已经失败(例如接收到错误警报或未能验证远端指纹)。
+
+| 枚举描述                                                     |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `new`                                                        | DTLS还没有开始协商。                                         |
+| `connecing`                                                  | DTLS正在协商一个安全连接，并验证远端指纹。                   |
+| `connected`[测试：1](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCDtlsTransport-state.html) | DTLS已经完成安全连接的协商，并已经确认远端指纹。             |
+| `closed`[测试：1](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCDtlsTransport-state.html) | transport已经关闭，由于收到close_notify警报，或调用close()。 |
+| `failed`                                                     | 由于产生了错误，transport已经失败(例如接收到错误警报或未能验证远端指纹)。 |
