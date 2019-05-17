@@ -92,7 +92,7 @@
 
 
 
-## 属性
+**属性**
 
 `RTCIceRole`类型的`role`，只读：`role`属性必须返回transport的ICE role。
 
@@ -108,7 +108,7 @@
 
 `EventHandler`类型的`onselectedcandidatepairchange`：此event handler，当`RTCIceTransport`选定的候选者对改变时，必须启动。
 
-## 方法
+**方法**
 
 `getLocalCandidates`:返回一个序列，描述为`RTCIceTransport`收集并在`onicecandidate`中发送的本地候选者。
 
@@ -121,8 +121,3 @@
 `getLocalParameters`:返回通过`setLocalDescription`由`RTCIceTransport`接收的本地ICE参数，如果参数未被接收，则为`null`。
 
 `getRemoteParameters`:返回通过`setRemoteDescription`，由`RTCIceTransport`接收的ICE远程参数，如果参数未被接收，则为`null`。
-
-
-
-
-
