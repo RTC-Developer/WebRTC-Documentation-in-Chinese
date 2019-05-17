@@ -33,7 +33,7 @@
 };
 ```
 
-## 属性
+**属性**
 
 `iceTransport` of type `RTCIceTransport`, readonly:
 iceTransport属性是用来发送接收数据包的底层传输。底层传输在多个活跃的RTCDtlsTransport对象间可能不会被共享。
@@ -47,7 +47,7 @@ iceTransport属性是用来发送接收数据包的底层传输。底层传输�
 `onerror` of type `EventHandler`:
 此eventhandler的事件类型是error。
 
-## 方法
+**方法**
 
 `getRemoteCertificates`返回[[RemoteCertificates]]的值。
 
