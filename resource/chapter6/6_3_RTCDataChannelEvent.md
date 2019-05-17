@@ -1,40 +1,30 @@
-## [6.3 RTCDataChannelEvent](http://w3c.github.io/webrtc-pc/#rtcdatachannelevent)
+## 6.3 `RTCDataChannelEvent`
 
-The datachannel event uses the RTCDataChannelEvent interface.
+使用`RTCDataChannelEvent`接口的`datachannel`事件。[测试1](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCPeerConnection-ondatachannel.html)
 
-zh:datachannel事件使用RTCDataChannelEvent接口。
-
-```
+```java
         [ Constructor (DOMString type, RTCDataChannelEventInit eventInitDict), Exposed=Window]
 interface RTCDataChannelEvent : Event {
     readonly        attribute RTCDataChannel channel;
 };
 ```
 
-**Constructors**
+**构造函数**
 
 `RTCDataChannelEvent`
- 
-**Attributes**
 
-*channel* of type RTCDataChannel, readonly:
-zh:RTCDataChannel类型的通道，只读
+[测试1](https://github.com/web-platform-tests/wpt/blob/master/webrtc/RTCDataChannelEvent-constructor.html)
 
-The channel attribute represents the RTCDataChannel object associated with the event.
+**属性**
 
-zh:channel属性表示与事件关联的RTCDataChannel对象。
+`RTCDataChannel`类型的channel，只读：channel属性表示与事件关联的`RTCDataChannel`对象。
 
-```
+```java
 dictionary RTCDataChannelEventInit : EventInit {
              required RTCDataChannel channel;
 };
 ```
 
-**Dictionary RTCDataChannelEventInit Members**
+**字典`RTCDataChannelEventInit`成员**
 
-channel of type RTCDataChannel, required:
-zh:必需的RTCDataChannel类型的通道
-
-The RTCDataChannel object to be announced by the event.
-
-zh:事件要宣布的RTCDataChannel对象。
+`RTCDataChannel`类型的channel，required：将要被事件宣布的`RTCDataChannel`对象。

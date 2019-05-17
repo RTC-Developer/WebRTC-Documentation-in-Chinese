@@ -1,44 +1,31 @@
-## [8.5 RTCStatsEvent zh:8.5 RTCStatsEvent](http://w3c.github.io/webrtc-pc/#rtcstatsevent)
+## 8.5 `RTCStatsEvent`
 
-The statsended event uses the RTCStatsEvent.
+`statsended`事件使用`RTCStatsEvent`。
 
-zh:statsended事件使用RTCStatsEvent。
-
-```
+```java
 [ Constructor (DOMString type, RTCStatsEventInit
           eventInitDict), Exposed=Window]
           interface RTCStatsEvent : Event {
             readonly attribute RTCStatsReport report;
           };
-          
 ```
 
-**Constructors**
+**构造函数**
 
 `RTCStatsEvent`
 
-	
-**Attributes**
+**属性**
 
-*report* of type RTCStatsReport :
-zh:RTCStatsReport类型的报告
+RTCStatsReport类型的`report`:`report`属性包含RTCStats对象的相应子类的stats对象，给出生命周期结束时受监视对象的统计信息的值。
 
-
-The report attribute contains the stats objects of the appropriate subclass of RTCStats object giving the value of the statistics for the monitored objects whose lifetime have ended, at the time that it ended.
-
-zh:report属性包含RTCStats对象的相应子类的stats对象，给出生命周期结束时受监视对象的统计信息的值。
-
-```
+```java
 dictionary RTCStatsEventInit : EventInit {
             required RTCStatsReport report;
           };
 ```
 
-**Dictionary RTCStatsEventInit members**
+**字典RTCStatsEventInit成员**
 
-*report* of type RTCStatsReport, required:
-zh:RTCStatsReport类型的报告，必需
+RTCStatsReport类型的`report`，必需的:
 
-Contains the RTCStats objects giving the stats for the objects whose lifetime have ended.
-
-zh:包含RTCStats对象，为生命周期结束的对象提供统计信息。
+包含`RTCStats`对象，为生命周期结束的对象提供统计信息。

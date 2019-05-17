@@ -1,6 +1,6 @@
-### [5.6.4 RTCIceTransportState Enum](http://w3c.github.io/webrtc-pc/#rtcicetransportstate)
+### 5.6.4 RTCIceTransportState枚举
 
-```
+```java
 enum RTCIceTransportState {
     "new",
     "checking",
@@ -12,109 +12,33 @@ enum RTCIceTransportState {
 };
 ```
 
-<table>
-	<tr>
-		<td colspan="2">
-		RTCIceTransportState Enumeration description
-		</td>
-	</tr>
-	<tr>
-		<td>
-		new
-		</td>
-		<td>
-		The RTCIceTransport is gathering candidates and/or waiting for remote candidates to be supplied, and has not yet started checking.
-		</td>
-	</tr>
-	<tr>
-		<td>
-		checking
-		</td>
-		<td>
-		The RTCIceTransport has received at least one remote candidate and is checking candidate pairs and has either not yet found a connection or consent checks [RFC7675] have failed on all previously successful candidate pairs. In addition to checking, it may also still be gathering.
-		</td>
-	</tr>
-	<tr>
-		<td>
-		connected
-		</td>
-		<td>
-		The RTCIceTransport has found a usable connection, but is still checking other candidate pairs to see if there is a better connection. It may also still be gathering and/or waiting for additional remote candidates. If consent checks [RFC7675] fail on the connection in use, and there are no other successful candidate pairs available, then the state transitions to "checking" (if there are candidate pairs remaining to be checked) or "disconnected" (if there are no candidate pairs to check, but the peer is still gathering and/or waiting for additional remote candidates).
-		</td>
-	</tr>
-	<tr>
-		<td>
-		completed
-		</td>
-		<td>
-		The RTCIceTransport has finished gathering, received an indication that there are no more remote candidates, finished checking all candidate pairs and found a connection. If consent checks [RFC7675] subsequently fail on all successful candidate pairs, the state transitions to "failed".
-		</td>
-	</tr>
-	<tr>
-		<td>
-		disconnected
-		</td>
-		<td>
-		The ICE Agent has determined that connectivity is currently lost for this RTCIceTransport. This is a transient state that may trigger intermittently (and resolve itself without action) on a flaky network. The way this state is determined is implementation dependent. Examples include:
-	<br>
-	- Losing the network interface for the connection in use.
-	<br>
-	- Repeatedly failing to receive a response to STUN requests.
-	<br>
-Alternatively, the RTCIceTransport has finished checking all existing candidates pairs and not found a connection (or consent checks [RFC7675] once successful, have now failed), but it is still gathering and/or waiting for additional remote candidates.
-		</td>
-	</tr>
-	<tr>
-		<td>
-		failed
-		</td>
-		<td>
-		The RTCIceTransport has finished gathering, received an indication that there are no more remote candidates, finished checking all candidate pairs, and all pairs have either failed connectivity checks or have lost consent. This is a terminal state.
-		</td>
-	</tr>
-	<tr>
-		<td>
-		closed
-		</td>
-		<td>
-		The RTCIceTransport has shut down and is no longer responding to STUN requests.
-		</td>
-	</tr>
-</table>
+| `RTCIceTransportState`枚举描述 |                                                              |
+| ------------------------------ | ------------------------------------------------------------ |
+| `new`                          | `RTCIceTransport`正在收集候选者并/或等待被提供远程候选者，并且还未开始校验。 |
+| `checking`                     | `RTCIceTransport`已经接收至少一个远程候选者并且正在校验候选者对，或是未发现连接，或是对之前成功的候选者对的校验已经失败。除此之外，它还可能继续收集。 |
+| `connected`                    | `RTCIceTransport`已经发现一个可用的连接，但是仍在校验其它候选者对试图找到一个更好的连接。它还可能继续收集并且/或等待另外的远程候选者。如果对正在使用的连接的consent check[RFC7675]失败，并且不存在其它成功的候选者对，那么状态转变为"checking"(如果还存在需要校验的候选者对)，或"disconnected"(如果没有候选者对需要校验，但是对等体仍在收集并且/或等待其它的远程候选者)。 |
+| `completed`                    | `RTCIceTransport`已经完成收集，接收到 没有更多远程候选者的指示，完成校验所有候选者对，并且已经发现一个连接。如果对于所有成功的候选者对的consent checks[RFC7675]接连失败，状态转变为"`failed`". |
+| `disconnected`                 | ICE代理已经确定当前`RTCIceTransport`的连接丢失。这是一个暂态，在片段网络中可能会间歇触发。确定状态的方式与实现方式相关。例如:丢失正在使用的连接的网络接口，或是接收对STUN请求的响应反复失败。另外，`RTCIceTransport`已经完成校验所有现存候选者对，还没有发现一个连接，但是它仍在收集或等待额外的远程候选者。 |
+| `failed`                       | RTCIceTransport已经完成收集，接收了没有更多远程候选者的指示，完成了对所有候选者对的校验，这是最终状态。 |
+| `closed`                       | RTCIceTransport已经断开，不再对STUN请求响应。                |
 
-An ICE restart causes candidate gathering and connectity checks to begin anew, causing a transition to connected if begun in the completed state. If begun in the transient disconnected state, it causes a transition to checking, effectively forgetting that connectivity was previously lost.
+ICE重启导致候选收集和连接检查重新开始，如果在`completed`状态下开始，则转换为`connected`。如果在暂态`disconnected`开始，则会导致转变为`checking`，从而有效的忘记之前丢失的连接。
 
-zh:ICE重启导致候选收集和连接检查重新开始，如果在完成状态下开始则导致转换到连接。如果在瞬态断开状态下开始，则会导致转换到检查，从而有效地忘记先前已丢失连接。
+`failed`和`completed`状态需要一个不再有额外远程候选者的指示。这可以通过调用`addIceCandidate`来实现，其中候选者值的`candidate`属性被设置为空字符串或者通过`canTrickleIceCandidates`被设置为`false`。
 
-The failed and completed states require an indication that there are no additional remote candidates. This can be indicated by calling addIceCandidate with a candidate value whose candidate property is set to an empty string or by canTrickleIceCandidates being set to false.
+一些状态转变的例子包括：
 
-zh:失败和完成状态需要指示没有其他远程候选者。这可以通过调用addIceCandidate来指示候选属性设置为空字符串或canTrickleIceCandidates设置为false的候选值来指示。
-
-Some example state transitions are:
-
-zh:一些示例状态转换是：
-
-* (RTCIceTransport first created, as a result of setLocalDescription or setRemoteDescription): new
-zh:（由于setLocalDescription或setRemoteDescription，RTCIceTransport首次创建）：new
-* (new, remote candidates received): checking
-zh:（收到新的，偏远的候选人）：检查
-* (checking, found usable connection): connected
-zh:（检查，发现可用连接）：已连接
-* (checking, checks fail but gathering still in progress): disconnected
-zh:（检查，检查失败但仍在进行中）：断开连接
-* (checking, gave up): failed
-zh:（检查，放弃）：失败
-* (disconnected, new local candidates): checking
-zh:（断开连接，新的本地候选人）：检查
-* (connected, finished all checks): completed
-zh:（连接，完成所有检查）：完成
-* (completed, lost connectivity): disconnected
-zh:（已完成，丢失连接）：已断开连接
-* (disconnected or failed, ICE restart occurs): checking
-zh:（断开连接或失败，ICE重启）：检查
-* (completed, ICE restart occurs): connected
-zh:（已完成，ICE重启）：已连接
-* RTCPeerConnection.close(): closed
-zh:RTCPeerConnection.close（）：已关闭
+- (`RTCIceTransport`首次创建，作为`setLocalDescription`或`setRemoteDescription`的结果)：`new`
+- (`new`,接收远程候选者)：`checking`
+- (`checking`，发现可用连接)：`connected`
+- (`checking`,校验失败，仍在收集过程)：`disconnected`
+- (`checking`,放弃)：`failed`
+- (`disconnected`,新的本地候选者)：`checking`
+- (`connected`,完成所有校验)：`completed`
+- (`completed`,丢失连接)：`disconnected`
+- (`disconnected`或`failed`，出现ICE重启)：`checking`
+- (`completed`,出现ICE重启)：`connected`
+- `RTCPeerConnection.close()`:`closed`
 
 ![](/image/5_6_4pic.png)
+

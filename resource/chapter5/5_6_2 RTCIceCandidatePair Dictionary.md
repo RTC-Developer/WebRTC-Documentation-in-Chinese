@@ -1,24 +1,14 @@
-### [5.6.2 RTCIceCandidatePair Dictionary](http://w3c.github.io/webrtc-pc/#rtcicecandidatepair)
+### 5.6.2 `RTCIceCandidatePair`字典
 
-```
+```java
 dictionary RTCIceCandidatePair {
              RTCIceCandidate local;
              RTCIceCandidate remote;
 };
 ```
 
-**Dictionary RTCIceCandidatePair Members**
+**字典`RTCIceCandidatePair`成员**
 
-*local* of type RTCIceCandidate:
-zh:RTCIceCandidate类型的本地
+`RTCIceCandidate`类型的`local`：本地ICE 候选者。
 
-The local ICE candidate.
-
-zh:当地的ICE候选人。
-
-*remote* of type RTCIceCandidate:
-zh:远程RTCIceCandidate类型
-
-The remote ICE candidate.
-
-zh:远程ICE候选人。
+`RTCIceCandidate`类型的`remote`：远程ICE 候选者。

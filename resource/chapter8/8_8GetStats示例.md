@@ -1,11 +1,8 @@
+## 8.8 GetStats示例
 
-## [8.8 GetStats Example zh:8.8 GetStats示例](http://w3c.github.io/webrtc-pc/#getstats-example)
+考虑用户遇到不良声音并且应用程序想要确定其原因是否是丢包的情形。可能使用以下示例代码：
 
-Consider the case where the user is experiencing bad sound and the application wants to determine if the cause of it is packet loss. The following example code might be used:
-
-zh:考虑用户遇到不良声音并且应用程序想要确定其原因是否是丢包的情况。可能使用以下示例代码：
-
-```
+```javascript
 async function gatherStats() {
   try {
     const sender = pc.getSenders()[0];
@@ -37,6 +34,5 @@ async function gatherStats() {
     console.error(err);
   }
 }
-
 ```
 
