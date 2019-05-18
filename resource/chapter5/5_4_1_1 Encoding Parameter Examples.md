@@ -1,12 +1,8 @@
-#### [5.4.1.1 Encoding Parameter Examples](http://w3c.github.io/webrtc-pc/#rtcrtpencodingspatialsim-example*)
+#### [5.4.1.1 编码参数示例](http://w3c.github.io/webrtc-pc/#rtcrtpencodingspatialsim-example*)
 
-This section is non-normative.
+本节不具有规范性。
 
-zh:本节不具有规范性。
-
-Examples of simulcast scenarios implemented with encoding parameters:
-
-zh:使用编码参数实现的联播场景示例：
+使用编码参数实现的联播场景示例：
 
 ```
 EXAMPLE 4
