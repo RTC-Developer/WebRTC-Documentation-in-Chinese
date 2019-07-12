@@ -49,64 +49,64 @@
 |4.9优先级和QoS模型| maojie|审校|
 |4.9.1 RTCPriorityType枚举| maojie|审校|
 |5. RTP Media API | Gong|审校|
-|5.1 RTCPeerConnection Interface Extensions| liaojun||
-|5.1.1 Processing Remote MediaStreamTracks| liaojun||
-|5.2 RTCRtpSender Interface|潘|审校|
-|5.2.1 RTCRtpParameters Dictionary|潘|审校|
-|5.2.2 RTCRtpSendParameters Dictionary|潘|审校|
-|5.2.3 RTCRtpReceiveParameters Dictionary|潘|审校|
-|5.2.4 RTCRtpCodingParameters Dictionary|潘|审校|
-|5.2.5 RTCRtpDecodingParameters Dictionary|潘|审校|
-|5.2.6 RTCRtpEncodingParameters Dictionary|潘|审校|
-|5.2.7 RTCDtxStatus Enum|潘|审校|
-|5.2.8 RTCDegradationPreference Enum|潘|审校|
-|5.2.9 RTCRtcpParameters Dictionary|潘|审校|
-|5.2.10 RTCRtpHeaderExtensionParameters Dictionary|潘|审校|
-|5.2.11 RTCRtpCodecParameters Dictionary|潘|审校|
-|5.2.12 RTCRtpCapabilities Dictionary|潘|审校|
-|5.2.13 RTCRtpCodecCapability Dictionary|潘|审校|
-|5.2.14 RTCRtpHeaderExtensionCapability Dictionary|潘|审校|
-|5.3 RTCRtpReceiver Interface|arthurwufeng|审校|
-|5.4 RTCRtpTransceiver Interface|arthurwufeng|审校|
-|5.4.1 Simulcast functionality|arthurwufeng|审校|
-|5.4.1.1 Encoding Parameter Examples|arthurwufeng|审校|
-|5.4.2 "Hold" functionality|arthurwufeng|审校|
-|5.5 RTCDtlsTransport Interface|||
-|5.5.1RTCDtlsFingerprint Dictionary|||
-|5.6RTCIceTransport Interface|||
-|5.6.1 RTCIceParameters Dictionary|||
-|5.6.2 RTCIceCandidatePair Dictionary|||
-|5.6.3 RTCIceGathererState Enum|||
-|5.6.4 RTCIceTransportState Enum|||
-|5.6.5 RTCIceRole Enum|||
-|5.6.6 RTCIceComponent Enum|||
-|5.7 RTCTrackEvent|||
-|6. Peer-to-peer Data API|||
-|6.1 RTCPeerConnection Interface Extensions|||
-|6.1.1 RTCSctpTransport Interface|||
-|6.1.1.1 Create an instance|||
-|6.1.1.2 Update max message size|||
-|6.1.1.3 Connected procedure|||
-|6.1.2 RTCSctpTransportState Enum|||
-|6.2 RTCDataChannel|||
-|6.3 RTCDataChannelEvent|||
-|6.4 Garbage Collection|||
-|7. Peer-to-peer DTMF|||
-|7.1 RTCRtpSender Interface Extensions|||
-|7.2 RTCDTMFSender|||
-|7.3 canInsertDTMF algorithm|||
-|7.4 RTCDTMFToneChangeEvent|||
-|8.1 Statistics Model|||
-|8.2 RTCPeerConnection Interface Extensions|||
-|8.3 RTCStatsReport Object|||
-|8.4 RTCStats Dictionary|||
-|8.5 RTCStatsEvent|||
-|8.6 The stats selection algorithm|||
-|8.7 Mandatory To Implement Stats|||
-|8.8 GetStats Example|||
-|9.1 Media Stream API Extensions for Network Use|||
-|9.2 MediaStream|||
-|9.3 MediaStreamTrack|||
-|9.3.1 MediaTrackSupportedConstraints, MediaTrackCapabilities, MediaTrackConstraints and MediaTrackSettings|||
-|10. 示例和呼叫流程|||
-|待上传11、12、13章节|||
+|5.1 RTCPeerConnection Interface Extensions|[liaojunleon](https://github.com/liaojunleon)|完成|
+|5.1.1 Processing Remote MediaStreamTracks|[liaojunleon](https://github.com/liaojunleon)|完成|
+|5.2 RTCRtpSender Interface|wsuai1234|审校|
+|5.2.1 RTCRtpParameters Dictionary|wsuai1234|审校|
+|5.2.2 RTCRtpSendParameters Dictionary|wsuai1234|审校|
+|5.2.3 RTCRtpReceiveParameters Dictionary|wsuai1234|审校|
+|5.2.4 RTCRtpCodingParameters Dictionary|wsuai1234|审校|
+|5.2.5 RTCRtpDecodingParameters Dictionary|wsuai1234|审校|
+|5.2.6 RTCRtpEncodingParameters Dictionary|wsuai1234|审校|
+|5.2.7 RTCDtxStatus Enum|wsuai1234|审校|
+|5.2.8 RTCDegradationPreference Enum|wsuai1234|审校|
+|5.2.9 RTCRtcpParameters Dictionary|wsuai1234|审校|
+|5.2.10 RTCRtpHeaderExtensionParameters Dictionary|wsuai1234|审校|
+|5.2.11 RTCRtpCodecParameters Dictionary|wsuai1234|审校|
+|5.2.12 RTCRtpCapabilities Dictionary|wsuai1234|审校|
+|5.2.13 RTCRtpCodecCapability Dictionary|wsuai1234|审校|
+|5.2.14 RTCRtpHeaderExtensionCapability Dictionary|wsuai1234|审校|
+|5.3 RTCRtpReceiver Interface|[arthurwufeng](https://github.com/arthurwufeng)|完成|
+|5.4 RTCRtpTransceiver Interface|[arthurwufeng](https://github.com/arthurwufeng)|完成|
+|5.4.1 Simulcast functionality|[arthurwufeng](https://github.com/arthurwufeng)|完成|
+|5.4.1.1 Encoding Parameter Examples|[arthurwufeng](https://github.com/arthurwufeng)|完成|
+|5.4.2 "Hold" functionality|[arthurwufeng](https://github.com/arthurwufeng)|完成|
+|5.5 RTCDtlsTransport Interface|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.5.1RTCDtlsFingerprint Dictionary|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.6RTCIceTransport Interface|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.6.1 RTCIceParameters Dictionary|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.6.2 RTCIceCandidatePair Dictionary|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.6.3 RTCIceGathererState Enum|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.6.4 RTCIceTransportState Enum|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.6.5 RTCIceRole Enum|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.6.6 RTCIceComponent Enum|[wshuai1234](https://github.com/wshuai1234)|完成|
+|5.7 RTCTrackEvent|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6. Peer-to-peer Data API|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.1 RTCPeerConnection Interface Extensions|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.1.1 RTCSctpTransport Interface|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.1.1.1 Create an instance|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.1.1.2 Update max message size|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.1.1.3 Connected procedure|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.1.2 RTCSctpTransportState Enum|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.2 RTCDataChannel|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.3 RTCDataChannelEvent|[wshuai1234](https://github.com/wshuai1234)|完成|
+|6.4 Garbage Collection|[wshuai1234](https://github.com/wshuai1234)|完成|
+|7. Peer-to-peer DTMF|[wshuai1234](https://github.com/wshuai1234)|完成|
+|7.1 RTCRtpSender Interface Extensions|[wshuai1234](https://github.com/wshuai1234)|完成|
+|7.2 RTCDTMFSender|[wshuai1234](https://github.com/wshuai1234)|完成|
+|7.3 canInsertDTMF algorithm|[wshuai1234](https://github.com/wshuai1234)|完成|
+|7.4 RTCDTMFToneChangeEvent|[wshuai1234](https://github.com/wshuai1234)|完成|
+|8.1 Statistics Model|[wshuai1234](https://github.com/wshuai1234)|完成|
+|8.2 RTCPeerConnection Interface Extensions|[wshuai1234](https://github.com/wshuai1234)|完成|
+|8.3 RTCStatsReport Object|[wshuai1234](https://github.com/wshuai1234)|完成|
+|8.4 RTCStats Dictionary|[wshuai1234](https://github.com/wshuai1234)|完成|
+|8.5 RTCStatsEvent|[wshuai1234](https://github.com/wshuai1234)|完成|
+|8.6 The stats selection algorithm|[wshuai1234](https://github.com/wshuai1234)|完成|
+|8.7 Mandatory To Implement Stats|[wshuai1234](https://github.com/wshuai1234)|完成|
+|8.8 GetStats Example|[wshuai1234](https://github.com/wshuai1234)|完成|
+|9.1 Media Stream API Extensions for Network Use|[wshuai1234](https://github.com/wshuai1234)|完成|
+|9.2 MediaStream|[wshuai1234](https://github.com/wshuai1234)|完成|
+|9.3 MediaStreamTrack|[wshuai1234](https://github.com/wshuai1234)|完成|
+|9.3.1 MediaTrackSupportedConstraints, MediaTrackCapabilities, MediaTrackConstraints and MediaTrackSettings|[wshuai1234](https://github.com/wshuai1234)|完成|
+|10. 示例和呼叫流程|[wshuai1234](https://github.com/wshuai1234)|完成|
+|11、12、13章节|[wshuai1234](https://github.com/wshuai1234)|完成|
