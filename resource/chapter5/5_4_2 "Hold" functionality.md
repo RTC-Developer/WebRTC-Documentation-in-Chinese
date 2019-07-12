@@ -1,12 +1,8 @@
-### [5.4.2 "Hold" functionality](http://w3c.github.io/webrtc-pc/#hold-functionality)
+### [5.4.2 "待机" 功能](http://w3c.github.io/webrtc-pc/#hold-functionality)
 
-Together, the direction attribute and the replaceTrack method enable developers to implement "hold" scenarios.
+`direction`属性和`replaceTrack`方法一起使开发人员能够实现“待机”方案。
 
-zh:direction属性和replaceTrack方法一起使开发人员能够实现“保持”方案。
-
-To send music to a peer and cease rendering received audio (music-on-hold):
-
-zh:要将音乐发送给对等方并停止呈现接收的音频（音乐保留）：
+要将音乐发送给对等方并停止呈现接收的音频（音乐待机）：
 
 ```
 EXAMPLE 5
@@ -25,9 +21,7 @@ async function playMusicOnHold() {
 ```
 
 
-To respond to a remote peer's "sendonly" offer:
-
-zh:要响应远程对等方的“sendonly”优惠：
+要响应远程对等方的“sendonly” 提议：
 
 ```
 EXAMPLE 6
@@ -49,9 +43,7 @@ async function handleSendonlyOffer() {
 ```
 
 
-To stop sending music and send audio captured from a microphone, as well to render received audio:
-
-zh:停止发送音乐并发送从麦克风捕获的音频，以及呈现接收到的音频：
+停止发送音乐并发送从麦克风捕获的音频，以及呈现接收到的音频：
 
 ```
 EXAMPLE 7
@@ -66,9 +58,7 @@ async function stopOnHoldMusic() {
 ```
 
 
-To respond to being taken off hold by a remote peer:
-
-zh:响应被远程对等方取消：
+响应被远程对等方取消待机：
 
 ```
 EXAMPLE 8
