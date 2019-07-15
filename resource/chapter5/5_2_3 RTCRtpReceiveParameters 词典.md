@@ -1,22 +1,18 @@
-### [5.2.3 RTCRtpReceiveParameters 词典](http://w3c.github.io/webrtc-pc/#rtcreceivertpparameters)
+### 5.2.3 `RTCRtpReceiveParameters`字典
 
-```
+```java
 dictionary RTCRtpReceiveParameters : RTCRtpParameters {
              required sequence<RTCRtpDecodingParameters>  encodings;
 };
 ```
 
-**Dictionary RTCRtpReceiveParameters Members**
+**字典`RTCRtpReceiveParameters`成员**
 
-*encodings* of type sequence<RTCRtpDecodingParameters>, required:
-zh:类型序列<RTCRtpDecodingParameters>的编码，必需
+序列<RTCRtpDecodingParameters>类型的encodings：
 
-A sequence containing information about incoming RTP encodings of media.
+包含入向媒体RTP编码信息的序列。
 
-zh:包含有关媒体的传入RTP编码的信息的序列。
-
->(FEATURE AT RISK) ISSUE 2
+> (FEATURE AT RISK) ISSUE 3
 >
->Support for the encodings attribute of RTCRtpReceiveParameters is marked as a feature at risk, since there is no clear commitment from implementers.
->
->zh:对RTCRtpReceiveParameters的编码属性的支持被标记为风险特征，因为实施者没有明确的承诺。
+> 对`RTCRtpReceiveParameters`的`encodings`属性的支持被标记为存在危险的特性，因为实现者没有明确的承诺。
+
