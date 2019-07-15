@@ -1,6 +1,6 @@
-### [5.2.2 RTCRtpSendParameters 词典](http://w3c.github.io/webrtc-pc/#rtcsendrtpparameters)
+### 5.2.2 `RTCRtpSendParameters`字典
 
-```
+```java
 dictionary RTCRtpSendParameters : RTCRtpParameters {
              required DOMString             transactionId;
              required sequence<RTCRtpEncodingParameters>  encodings;
@@ -9,34 +9,23 @@ dictionary RTCRtpSendParameters : RTCRtpParameters {
 };
 ```
 
-##### Dictionary RTCRtpSendParameters Members
+**字典`RTCRtpSendParameters`成员**
 
-*transactionId* of type DOMString, required:
-zh:必需的DOMItring类型的transactionId
+DOMString类型的`transactionId`：
 
-An unique identifier for the last set of parameters applied. Ensures that setParameters can only be called based on a previous getParameters, and that there are no intervening changes. Read-only parameter.
+应用的最后一组参数的唯一标识符。确保只能基于先前的getParameters调用setParameters，并且没有干预更改。只读参数。
 
-zh:应用的最后一组参数的唯一标识符。确保只能基于先前的getParameters调用setParameters，并且没有干预更改。只读参数。
+序列<RTCRtpEncodingParameters>类型的`encodings`：
 
-*encodings* of type sequence<RTCRtpEncodingParameters>, required:
-zh:类型序列<RTCRtpEncodingParameters>的编码，必需
+包含媒体RTP编码参数的序列。
 
-A sequence containing parameters for RTP encodings of media.
+`RTCDegradationPreference`类型的`degradationPreference`,默认为`"balanced":`
 
-zh:包含媒体RTP编码参数的序列。
+当带宽受到限制，`RTCRtpSender`需要在降低分辨率和降低帧率之间做出选择，`degradationPreference`指定倾向的选择。
 
-*degradationPreference* of type RTCDegradationPreference, defaulting to "balanced":
-zh:降级RTCDegradation类型的偏差，默认为“平衡”
+`RTCPriorityType`类型的`priority`，默认为`"low"`:
 
-When bandwidth is constrained and the RtpSender needs to choose between degrading resolution or degrading framerate, degradationPreference indicates which is preferred.
-
-zh:当带宽受限并且RtpSender需要在降级分辨率或降低帧速率之间进行选择时，degraprepreference指示哪个是首选。
-
-*priority* of type RTCPriorityType, defaulting to "low":
-zh:RTCPriorityType类型的优先级，默认为“低”
+表示`RTCRtpSender`的优先级，它影响`RTCRtpSender`对象之间的带宽分配。它在[RTCWEB-TRANSPORT]第四节中指定。用户代理可以在`RTCRtpSender`的编码之间自由地分配带宽。
 
 
 
-Indicates the priority of this encoding. It is specified in [RTCWEB-TRANSPORT], Section 4.
-
-zh:表示此编码的优先级。它在[RTCWEB-TRANSPORT]第4节中规定。
