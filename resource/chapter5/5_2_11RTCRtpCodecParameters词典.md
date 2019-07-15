@@ -1,6 +1,6 @@
-### [5.2.11 RTCRtpCodecParameters 词典](http://w3c.github.io/webrtc-pc/#rtcrtpcodecparameters)
+### 5.2.11 `RTCRtpCodecParameters`字典
 
-```
+```java
 dictionary RTCRtpCodecParameters {
              required octet          payloadType;
              required DOMString      mimeType;
@@ -10,39 +10,25 @@ dictionary RTCRtpCodecParameters {
 };
 ```
 
-**Dictionary RTCRtpCodecParameters Members**
+**字典`RTCRtpCodecParameters`成员**
 
-*payloadType* of type octet:
-zh:payload类型为octet的类型
+**octet**类型的`payloadType`:
 
-The RTP payload type used to identify this codec. Read-only parameter.
+用于验证编解码器的RTP负载类型。只读参数。
 
-zh:用于标识此编解码器的RTP有效内容类型。只读参数。
+**DOMString**类型的mimeType：
 
-*mimeType* of type DOMString:
-zh:DOMString类型的mimeType
+编解码器MIME媒体类型/子类型。有效的媒体类型和子类型都在[IANA-RTP-2]中列出。只读参数。
 
-The codec MIME media type/subtype. Valid media types and subtypes are listed in [IANA-RTP-2]. Read-only parameter.
+**unsigned long**类型的`clockRate`:
 
-zh:编解码器MIME媒体类型/子类型。 [IANA-RTP-2]中列出了有效的媒体类型和子类型。只读参数。
+编解码器的时钟速率，以赫兹为单位。只读参数。
 
-*clockRate* of type unsigned long:
-zh:clockRate类型为unsigned long
+**unsigned short**类型的`channels`：
 
-The codec clock rate expressed in Hertz. Read-only parameter.
+存在时，表示通道数量(mono=1, stereo=2)。只读参数。
 
-zh:编解码器时钟速率以赫兹表示。只读参数。
+**DOMString**类型的`sdpFmtpLine`:
 
-*channels* of type unsigned short:
-zh:无符号短型通道
+SDP中对应于编解码器的"a=fmtp"行中的"格式特定参数"字段(如果存在)，如[JSEP]所定义(第5.8节)。对于`RTCRtpSender`,这些参数来自远程描述，对于`RTCRtpReceiver`,它们来自本地描述。只读参数。
 
-When present, indicates the number of channels (mono=1, stereo=2). Read-only parameter.
-
-zh:存在时，表示通道数（mono = 1，stereo = 2）。只读参数。
-
-*sdpFmtpLine* of type DOMString:
-zh:DOMString类型的sdpFmtpLine
-
-The "format specific parameters" field from the "a=fmtp" line in the SDP corresponding to the codec, if one exists, as defined by [JSEP] (section 5.8.). For an RTCRtpSender, these parameters come from the remote description, and for an RTCRtpReceiver, they come from the local description. Read-only parameter.
-
-zh:SDP中对应于编解码器的“a = fmtp”行中的“格式特定参数”字段，如果存在，如[JSEP]所定义（第5.8节）。对于RTCRtpSender，这些参数来自远程描述，对于RTCRtpReceiver，它们来自本地描述。只读参数。
