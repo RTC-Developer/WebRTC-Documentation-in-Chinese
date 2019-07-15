@@ -1,6 +1,6 @@
-### [5.2.13 RTCRtpCodecCapability Dictionary](http://w3c.github.io/webrtc-pc/#rtcrtpcodeccapability)
+### 5.2.13 `RTCRtpCodecCapability`字典
 
-```
+```java
 dictionary RTCRtpCodecCapability {
              required DOMString mimeType;
              required unsigned long  clockRate;
@@ -9,41 +9,26 @@ dictionary RTCRtpCodecCapability {
 };
 ```
 
-**Dictionary RTCRtpCodecCapability Members **
+**字典`RTCRtpCodecCapability`成员**
 
-The RTCRtpCodecCapability dictionary provides information about codec capabilities. Only capability combinations that would utilize distinct payload types in a generated SDP offer are provided. For example:
+`RTCRtpCodecCapability`字典提供有关编解码器功能的信息。仅提供将在生成SDP请求中利用不同有效载荷类型的capability组合。例如：
 
-zh:RTCRtpCodecCapability字典提供有关编解码器功能的信息。仅提供将在生成的SDP提供中利用不同有效载荷类型的能力组合。例如：
+1. 两个H.264/AVC编解码器，分别用于两个支持的分组模式值。
+2. 具有不同始终速率的两个CN编解码器。
 
-1. Two H.264/AVC codecs, one for each of two supported packetization-mode values.
-zh:两个H.264 / AVC编解码器，分别用于两个支持的分组模式值。
-2. Two CN codecs with different clock rates.
-zh:两个具有不同时钟速率的CN编解码器。
+**DOMString类型**的`mimeType`:
 
-*mimeType* of type DOMString, required:
-zh:需要DOMString类型的mimeType
+编解码器MIME媒体类型/子类型。[IANA-RTP-2]中列出了有效的媒体类型和子类型。
 
-The codec MIME media type/subtype. Valid media types and subtypes are listed in [IANA-RTP-2].
+**unsigned long 类型**的`clockRate`:
 
-zh:编解码器MIME媒体类型/子类型。 [IANA-RTP-2]中列出了有效的媒体类型和子类型。
+以赫兹为单位的编解码器的时钟速率。
 
-*clockRate* of type unsigned long, required:
-zh:clockRate类型为unsigned long，必需
+**unsigned short类型**的`channels`:
 
-The codec clock rate expressed in Hertz.
+如果存在，表示最大通道数量(mono=1，stereo=2)。
 
-zh:编解码器时钟速率以赫兹表示。
+**DOMString类型**的`sdpFmtpLine`:
 
-*channels* of type unsigned short:
-zh:无符号短型通道
+来自SDP中与编解码器对应的"a=fmtp"行的"格式特定参数"字段(如果存在)。
 
-If present, indicates the maximum number of channels (mono=1, stereo=2).
-
-zh:如果存在，则表示最大通道数（mono = 1，stereo = 2）。
-
-*sdpFmtpLine* of type DOMString:
-zh:DOMString类型的sdpFmtpLine
-
-The "format specific parameters" field from the "a=fmtp" line in the SDP corresponding to the codec, if one exists.
-
-zh:SDP中对应于编解码器的“a = fmtp”行中的“格式特定参数”字段（如果存在）。

@@ -1,17 +1,14 @@
-### [5.2.14 RTCRtpHeaderExtensionCapability Dictionary](http://w3c.github.io/webrtc-pc/#rtcrtpheaderextensioncapability)
+### 5.2.14 `RTCRtpHeaderExtensionCapability`字典
 
-```
+```java
 dictionary RTCRtpHeaderExtensionCapability {
              DOMString uri;
 };
 ```
 
-**Dictionary RTCRtpHeaderExtensionCapability Members**
+**字典`RTCRtpHeaderExtensionCapability`成员**
 
-*uri* of type DOMString:
-zh:uri类型DOMString
+**DOMString类型**的`uri`:
 
+[RFC5285]中定义的RTP标头扩展的URI。
 
-The URI of the RTP header extension, as defined in [RFC5285].
-
-zh:RTP头扩展的URI，如[RFC5285]中所定义。

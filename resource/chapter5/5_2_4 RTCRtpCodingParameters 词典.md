@@ -1,16 +1,14 @@
-### [5.2.4 RTCRtpCodingParameters Dictionary](http://w3c.github.io/webrtc-pc/#rtcrtpcodingparameters)
+### 5.2.4 `RTCRtpCodingParameters`字典
 
-```
+```java
 dictionary RTCRtpCodingParameters {
              DOMString           rid;
 };
 ```
 
-**Dictionary RTCRtpCodingParameters Members**
+**字典RTCRtpCodingParameters成员**
 
-*rid* of type DOMString:
-zh:摆脱DOMString类型
+DOMString类型的`rid`:
 
-If set, this RTP encoding will be sent with the RID header extension as defined by [JSEP] (section 5.2.1.). The RID is not modifiable via setParameters. It can only be set or modified in addTransceiver on the sending side. Read-only parameter.
+如果设置，RTP编码将与[JSEP] (第5.2.1节)定义的RID头扩展一起发送。RID不能通过`setParameters`修改。它只能在发送端的`addTransceiver`中设置或修改。只读参数。
 
-zh:如果设置，则此RTP编码将与[JSEP]（第5.2.1节）定义的RID头扩展一起发送。 RID不能通过setParameters修改。它只能在发送端的addTransceiver中设置或修改。只读参数。
