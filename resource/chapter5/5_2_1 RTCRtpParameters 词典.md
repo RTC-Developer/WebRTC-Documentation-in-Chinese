@@ -1,6 +1,6 @@
-### [5.2.1 RTCRtpParameters 词典](http://w3c.github.io/webrtc-pc/#rtcrtpparameters)
+### 5.2.1 `RTCRtpParameters`字典
 
-```
+```java
 dictionary RTCRtpParameters {
              required sequence<RTCRtpHeaderExtensionParameters> headerExtensions;
              required RTCRtcpParameters                         rtcp;
@@ -8,25 +8,17 @@ dictionary RTCRtpParameters {
 };
 ```
 
-**Dictionary RTCRtpParameters Members**
+**字典`RTCRtpParameters`成员**
 
-*headerExtensions* of type sequence<RTCRtpHeaderExtensionParameters>, required:
-zh:headerExtensions类型为序列<RTCRtpHeaderExtensionParameters>，必需
+序列<RTCRtpHeaderExtensionParameters>类型的headerExtensions:
 
-A sequence containing parameters for RTP header extensions. Read-only parameter.
+包含RTP标头扩展参数的序列。只读参数。
 
-zh:包含RTP标头扩展参数的序列。只读参数。
+`RTCRtcpParameters`类型的`rtcp`:
 
-*rtcp* of type RTCRtcpParameters, required:
-zh:必需的RTCRtcpParameters类型的rtcp
+用于RTCP的参数。只读参数。
 
-Parameters used for RTCP. Read-only parameter.
+序列`<RTCRtpCodeParameters>`类型的`codecs`:
 
-zh:用于RTCP的参数。只读参数。
+包含`RTCRtpSender`将选择的媒体编码器序列，以及RTX，RED和FEC机制的条目。对应于通过RTX进行重新传输的每个媒体编解码器，在`codecs[]`中将有一个条目，其中`mimeType`属性表示通过"audio/rtx"或"video/rtx"重新传输，以及`sdpFmtpLine`属性(提供"apt"和"rtx-time"参数)。只读参数。
 
-*codecs* of type sequence<RTCRtpCodecParameters>, required:
-zh:类型序列<RTCRtpCodecParameters>的编解码器，必需
-
-A sequence containing the media codecs that an RTCRtpSender will choose from, as well as entries for RTX, RED and FEC mechanisms. Corresponding to each media codec where retransmission via RTX is enabled, there will be an entry in codecs[] with a mimeType attribute indicating retransmission via "audio/rtx" or "video/rtx", and an sdpFmtpLine attribute (providing the "apt" and "rtx-time" parameters). Read-only parameter.
-
-zh:包含RTCRtpSender将选择的媒体编解码器的序列，以及RTX，RED和FEC机制的条目。对应于通过RTX进行重传的每个媒体编解码器，在codecs []中将有一个条目，其中mimeType属性指示通过“audio / rtx”或“video / rtx”进行重传，以及sdpFmtpLine属性（提供“apt”）和“rtx-time”参数）。只读参数。
