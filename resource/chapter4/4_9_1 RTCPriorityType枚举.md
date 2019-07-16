@@ -1,4 +1,4 @@
-### [4.9.1 RTCPriorityType Enum zh:4.9.1 RTCPriorityType枚举](http://w3c.github.io/webrtc-pc/#rtcprioritytype-enum)
+### [4.9.1 RTCPriorityType枚举类型](http://w3c.github.io/webrtc-pc/#rtcprioritytype-enum)
 
 ```
 enum RTCPriorityType {
@@ -12,7 +12,7 @@ enum RTCPriorityType {
 <table>
 	<tr>
 		<td colspan="2">
-		Enumeration description
+		枚举类型描述
 		</td>
 	</tr>
 	<tr>
@@ -20,7 +20,7 @@ enum RTCPriorityType {
 		very-low	
 		</td>
 		<td>
-		See [RTCWEB-TRANSPORT], Sections 4.1 and 4.2. Corresponds to "below normal" as defined in [RTCWEB-DATA].
+		参看 [RTCWEB-TRANSPORT], 第4.1和4.2小节. 等同于定义在[RTCWEB-DATA]中的"below normal".
 		</td>
 	</tr>
 	<tr>
@@ -28,7 +28,7 @@ enum RTCPriorityType {
 		low	
 		</td>
 		<td>
-		See [RTCWEB-TRANSPORT], Sections 4.1 and 4.2. Corresponds to "normal" as defined in [RTCWEB-DATA].
+		参看 [RTCWEB-TRANSPORT], 第4.1和4.2小节. 等同于定义在[RTCWEB-DATA]中的"normal".
 		</td>
 	</tr>
 	<tr>
@@ -36,7 +36,7 @@ enum RTCPriorityType {
 		medium
 		</td>
 		<td>
-		See [RTCWEB-TRANSPORT], Sections 4.1 and 4.2. Corresponds to "high" as defined in [RTCWEB-DATA].
+		参看[RTCWEB-TRANSPORT], 第4.1和4.2小节. 等同于定义在[RTCWEB-DATA]中的"high".
 		</td>
 	</tr>
 	<tr>
@@ -44,11 +44,9 @@ enum RTCPriorityType {
 		high
 		</td>
 		<td>
-		See [RTCWEB-TRANSPORT], Sections 4.1 and 4.2. Corresponds to "extra high" as defined in [RTCWEB-DATA].
+		参看[RTCWEB-TRANSPORT], 第4.1和4.2小节. 等同于定义在[RTCWEB-DATA]中的"extra high".
 		</td>
 	</tr>
 </table>
 
-Applications that use this API should be aware that often better overall user experience is obtained by lowering the priority of things that are not as important rather than raising the priority of the things that are.
-
-zh:使用此API的应用程序应该意识到，通过降低不重要的事物的优先级而不是提高事物的优先级，通常可以获得更好的整体用户体验。
+当在应用程序中使用该API时，开发者需要意识到更好的整体用户体验通常来自于主动降低某些不重要媒体流的优先级而不是一味地去提高某些重要媒体流的优先级。
