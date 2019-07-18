@@ -46,8 +46,8 @@
 |4.8.1.4 RTCIceCandidateType枚举| neo|审校|
 |4.8.2 RTCPeerConnectionIceEvent| neo|审校|
 |4.8.3 RTCPeerConnectionIceErrorEvent| neo|审校|
-|4.9优先级和QoS模型| maojie|审校|
-|4.9.1 RTCPriorityType枚举| maojie|审校|
+|4.9优先级和QoS模型| maojie|完成|
+|4.9.1 RTCPriorityType枚举| maojie|完成|
 |5. RTP Media API | Gong|审校|
 |5.1 RTCPeerConnection Interface Extensions|[liaojunleon](https://github.com/liaojunleon)|完成|
 |5.1.1 Processing Remote MediaStreamTracks|[liaojunleon](https://github.com/liaojunleon)|完成|
