@@ -19,8 +19,7 @@ enum RTCIceGatheringState {
 		new
 		</td>
 		<td>
-		Any of the RTCIceTransports are in the "new" gathering state and none of the transports are in the "gathering" state, or there are no transports.
-		zh:任何RTCIceTransport都处于“新”聚集状态，并且没有任何传输处于“聚集”状态，或者没有传输。
+		zh:任何 RTCIceTransport 都处于“new”收集状态，并且没有任何传输处于“gathering”状态，或者没有传输。
 		</td>
 	</tr>
 	<tr>
@@ -28,7 +27,7 @@ enum RTCIceGatheringState {
 		gathering
 		</td>
 		<td>
-		Any of the RTCIceTransports are in the "gathering" state.
+		zh:任何 RTCIceTransport 都处于“gathering”收集状态。
 		</td>
 	</tr>
 	<tr>
@@ -36,8 +35,7 @@ enum RTCIceGatheringState {
 		complete
 		</td>
 		<td>
-		At least one RTCIceTransport exists, and all RTCIceTransports are in the "completed" gathering state.
-		zh:至少存在一个RTCIceTransport，并且所有RTCIceTransport都处于“已完成”的收集状态。
+		zh:至少存在一个 RTCIceTransport，并且所有RTCIceTransport都处于“已完成”的收集状态。
 		</td>
 	</tr>
 </table>

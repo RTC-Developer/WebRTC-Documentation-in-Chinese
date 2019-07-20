@@ -25,7 +25,7 @@ enum RTCSignalingState {
 		</td>
 		<td>
 		There is no offer/answer exchange in progress. This is also the initial state, in which case the local and remote descriptions are empty.
-		zh:没有提供/回答交换正在进行中。这也是初始状态，在这种情况下，本地和远程描述为空。
+		zh:没有 offer/answer 交换正在进行。这也是初始状态，在这种情况下，本地和远程描述为空。
 		</td>
 	</tr>
 	<tr>
@@ -33,8 +33,7 @@ enum RTCSignalingState {
 		have-local-offer	
 		</td>
 		<td>
-		A local description, of type "offer", has been successfully applied.
-		zh:已成功应用“offer”类型的本地说明。
+		zh:成功使用“offer”类型的本地描述。
 		</td>
 	</tr>
 	<tr>
@@ -42,8 +41,7 @@ enum RTCSignalingState {
 		have-remote-offer	
 		</td>
 		<td>
-		A remote description, of type "offer", has been successfully applied.
-		zh:已成功应用“offer”类型的远程描述。
+		zh:成功使用“offer”类型的远程描述。
 		</td>
 	</tr>
 	<tr>
@@ -51,7 +49,6 @@ enum RTCSignalingState {
 		have-local-pranswer	
 		</td>
 		<td>
-		A remote description of type "offer" has been successfully applied and a local description of type "pranswer" has been successfully applied.
 		zh：已成功应用“offer”类型的远程描述，并已成功应用“pranswer”类型的本地描述。
 		</td>
 	</tr>
@@ -60,7 +57,6 @@ enum RTCSignalingState {
 		have-remote-pranswer	
 		</td>
 		<td>
-		A local description of type "offer" has been successfully applied and a remote description of type "pranswer" has been successfully applied.
 		zh：已成功应用“offer”类型的本地描述，并且已成功应用“pranswer”类型的远程描述。
 		</td>
 	</tr>
@@ -69,8 +65,7 @@ enum RTCSignalingState {
 		closed	
 		</td>
 		<td>
-		The RTCPeerConnection has been closed; its [[IsClosed]] slot is true.
-		zh：`RTCPeerConnection`已关闭;它的[[IsClosed]]槽是真的。
+		zh：`RTCPeerConnection`已关闭;它的[[IsClosed]]值是 true 的。
 		</td>
 	</tr>
 </table>
@@ -80,9 +75,9 @@ enum RTCSignalingState {
 
 An example set of transitions might be:
 
-zh:一组示例转换可能是：
+zh:一组状态转换示例：
 
-Caller transition:zh:呼叫者过渡：
+Caller transition:zh:呼叫者状态转换：
 
 - new RTCPeerConnection(): stable
 - setLocalDescription(offer): have-local-offer
@@ -91,7 +86,7 @@ Caller transition:zh:呼叫者过渡：
 
 
 
-Callee transition:zh:被呼叫者过渡：
+Callee transition:zh:被呼叫者状态转换：
 
 - new RTCPeerConnection(): stable
 - setRemoteDescription(offer): have-remote-offer
