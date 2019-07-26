@@ -6,32 +6,32 @@
 |1 介绍| [plutoless](https://github.com/plutoless)|已完成|
 |2 一致性|[plutoless](https://github.com/plutoless)|已完成|
 |3 术语 | [plutoless](https://github.com/plutoless)|已完成|
-|4.1 点对点连接| yusicheng|审校|
-|4.2.1 RTCConfiguration字典 | yusicheng|审校|
-|4.2.2 RTCIceCredentialType 枚举 | yusicheng|审校|
-|4.2.3 RTCOAuthCredential Dictionary| yusicheng|审校|
-|4.2.4 RTCIceServer字典| yusicheng|审校|
-|4.2.5 RTCIceTransportPolicy 枚举| yusicheng|审校|
-|4.2.6 RTCBundlePolicy 枚举| yusicheng|审校|
-|4.2.7 RTCRtcpMuxPolicy 枚举| yusicheng|审校|
-|4.2.8 Offer/answer option 提供、应答选项| yusicheng|审校|
-|4.3.1 RTCSignalingState 枚举| yusicheng|审校|
-|4.3.2 RTCIceGatheringState 枚举| yusicheng|审校|
-|4.3.3 RTCPeerConnectionState 枚举| yusicheng|审校|
-|4.3.4 RTCIceConnectionState 枚举| yusicheng|审校|
-|4.4 RTCPeerConnection 接口| yusicheng|审校|
-|4.4.1 操作| yusicheng|审校|
-|4.4.1.1 构造函数| yusicheng|审校|
-|4.4.1.2 将操作排入队列| yusicheng|审校|
-|4.4.1.3 更新连接状态| yusicheng|审校|
-|4.4.1.4 更新 ICE 收集状态| yusicheng|审校|
-|4.4.1.5 更新 ICE 连接状态| yusicheng|审校|
-|4.4.1.6 设置 RTCSessionDescription| yusicheng|审校|
+|4.1 点对点连接| yusicheng|已完成|
+|4.2.1 RTCConfiguration字典 | yusicheng|已完成|
+|4.2.2 RTCIceCredentialType 枚举 | yusicheng|已完成|
+|4.2.3 RTCOAuthCredential Dictionary| yusicheng|已完成|
+|4.2.4 RTCIceServer字典| yusicheng|已完成|
+|4.2.5 RTCIceTransportPolicy 枚举| yusicheng|已完成|
+|4.2.6 RTCBundlePolicy 枚举| yusicheng|已完成|
+|4.2.7 RTCRtcpMuxPolicy 枚举| yusicheng|已完成|
+|4.2.8 Offer/answer option 提供、应答选项| yusicheng|已完成|
+|4.3.1 RTCSignalingState 枚举| yusicheng|已完成|
+|4.3.2 RTCIceGatheringState 枚举| yusicheng|已完成|
+|4.3.3 RTCPeerConnectionState 枚举| yusicheng|已完成|
+|4.3.4 RTCIceConnectionState 枚举| yusicheng|已完成|
+|4.4 RTCPeerConnection 接口| yusicheng|已完成|
+|4.4.1 操作| yusicheng|已完成|
+|4.4.1.1 构造函数| yusicheng|已完成|
+|4.4.1.2 将操作排入队列| yusicheng|已完成|
+|4.4.1.3 更新连接状态| yusicheng|已完成|
+|4.4.1.4 更新 ICE 收集状态| yusicheng|已完成|
+|4.4.1.5 更新 ICE 连接状态| yusicheng|已完成|
+|4.4.1.6 设置 RTCSessionDescription| yusicheng|已完成|
 |4.4.2 接口定义| yusicheng|审校|
-|4.4.3 旧接口扩展| yusicheng|审校|
-|4.4.3.1方法扩展| yusicheng|审校|
-|4.4.3.2 旧版配置扩展| yusicheng|审校|
-|4.4.4 垃圾回收| yusicheng|审校|
+|4.4.3 旧接口扩展| yusicheng|已完成|
+|4.4.3.1方法扩展| yusicheng|已完成|
+|4.4.3.2 旧版配置扩展| yusicheng|已完成|
+|4.4.4 垃圾回收| yusicheng|已完成|
 |4.5 错误处理| neo|审校|
 |4.6 会话描述类型| neo|审校|
 |4.6.2 RTCSessionDescription 类| neo|审校|
