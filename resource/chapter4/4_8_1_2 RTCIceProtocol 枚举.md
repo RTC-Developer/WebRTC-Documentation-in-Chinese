@@ -1,8 +1,6 @@
-#### [4.8.1.2 RTCIceProtocol Enum zh:4.8.1.2 RTCIceProtocol枚举](http://w3c.github.io/webrtc-pc/#rtciceprotocol-enum)
+#### [4.8.1.2 RTCIceProtocol枚举](http://w3c.github.io/webrtc-pc/#rtciceprotocol-enum)
 
-The RTCIceProtocol represents the protocol of the ICE candidate.
-
-zh:RTCIceProtocol表示ICE候选者的协议。
+`RTCIceProtocol`表示ICE候选者的协议。
 
 ```
 enum RTCIceProtocol {
@@ -14,7 +12,7 @@ enum RTCIceProtocol {
 <table>
 	<tr>
 		<td colspan="2">
-		Enumeration description
+		枚举描述
 		</td>
 	</tr>
 	<tr>
@@ -22,7 +20,7 @@ enum RTCIceProtocol {
 		udp
 		</td>
 		<td>
-		A UDP candidate, as described in [ICE].
+		表示一个基于UDP协议的候选人，详细描述参考 [ICE].
 		</td>
 	</tr>
 	<tr>
@@ -30,7 +28,7 @@ enum RTCIceProtocol {
 		tcp
 		</td>
 		<td>
-		A TCP candidate, as described in [RFC6544].
+	  表示一个基于tcp协议的候选人，详细描述参考 [RFC6544].
 		</td>
 	</tr>
 </table>

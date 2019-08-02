@@ -1,12 +1,8 @@
-### [4.8.2 RTCPeerConnectionIceEvent](http://w3c.github.io/webrtc-pc/#rtcpeerconnectioniceevent)
+### [4.8.2 RTCPeerConnectionIceEvent接口](http://w3c.github.io/webrtc-pc/#rtcpeerconnectioniceevent)
 
-The icecandidate event of the RTCPeerConnection uses the RTCPeerConnectionIceEvent interface.
+`RTCPeerConnection` 的 `icecandidate` 事件使用 `RTCPeerConnectionIceEvent` 接口。
 
-zh:RTCPeerConnection的icecandidate事件使用RTCPeerConnectionIceEvent接口。
-
-When firing an RTCPeerConnectionIceEvent event that contains an RTCIceCandidate object, it MUST include values for both sdpMid and sdpMLineIndex. If the RTCIceCandidate is of type srflx or type relay, the url property of the event MUST be set to the URL of the ICE server from which the candidate was obtained.
-
-zh:当触发包含RTCIceCandidate对象的RTCPeerConnectionIceEvent事件时，它必须包含sdpMid和sdpMLineIndex的值。如果RTCIceCandidate的类型为srflx或类型为relay，则事件的url属性必须设置为从中获取候选者的ICE服务器的URL。
+当触发包含 `RTCIceCandidate` 对象的 `RTCPeerConnectionIceEvent` 事件时，它必须包含`sdpMid`和`sdpMLineIndex`的值。如果RTCIceCandidate的类型为srflx或类型为relay，则事件的url属性必须设置为从中获取候选者的ICE服务器的URL。
 
 NOTE
 

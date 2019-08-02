@@ -1,8 +1,6 @@
-#### [4.8.1.3 RTCIceTcpCandidateType Enum zh:4.8.1.3 RTCIceTcpCandidateType枚举](http://w3c.github.io/webrtc-pc/#rtcicetcpcandidatetype-enum)
+#### [4.8.1.3 RTCIceTcpCandidateType枚举](http://w3c.github.io/webrtc-pc/#rtcicetcpcandidatetype-enum)
 
-The RTCIceTcpCandidateType represents the type of the ICE TCP candidate, as defined in [RFC6544].
-
-zh:RTCIceTcpCandidateType表示ICE TCP候选的类型，如[RFC6544]中所定义。
+`RTCIceTcpCandidateType`表示ICE TCP候选的类型，如[RFC6544]中所定义。
 
 ```
 enum RTCIceTcpCandidateType {
@@ -15,7 +13,7 @@ enum RTCIceTcpCandidateType {
 <table>
 	<tr>
 		<td colspan="2">
-		Enumeration description
+		枚举描述
 		</td>
 	</tr>
 	<tr>
@@ -23,7 +21,7 @@ enum RTCIceTcpCandidateType {
 		active
 		</td>
 		<td>
-		An active TCP candidate is one for which the transport will attempt to open an outbound connection but will not receive incoming connection requests.
+		表示一个`active`状态的TCP候选人，这将会尝试打开一个出站连接，但不会接收传入连接的请求。
 		</td>
 	</tr>
 	<tr>
@@ -31,7 +29,7 @@ enum RTCIceTcpCandidateType {
 		passive
 		</td>
 		<td>
-		A passive TCP candidate is one for which the transport will receive incoming connection attempts but not attempt a connection.
+		表示一个`passive`状态的TCP候选人，这将会接收传入连接的请求，但不会尝试打开一个出站连接。
 		</td>
 	</tr>
 	<tr>
@@ -39,12 +37,9 @@ enum RTCIceTcpCandidateType {
 		so	
 		</td>
 		<td>
-		An so candidate is one for which the transport will attempt to open a connection simultaneously with its peer.
+		表示一个`so`状态的候选人，这将会尝试与对端同时打开一个连接。
 		</td>
 	</tr>	
 </table>
 
-NOTE
-The user agent will typically only gather active ICE TCP candidates.
-
-zh:用户代理通常只收集活动的ICE TCP候选者。
+NOTE：用户代理通常只收集活动的ICE TCP候选者。

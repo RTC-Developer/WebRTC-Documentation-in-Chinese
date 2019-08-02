@@ -1,8 +1,6 @@
-#### [4.8.1.4 RTCIceCandidateType Enum zh:4.8.1.4 RTCIceCandidateType枚举](http://w3c.github.io/webrtc-pc/#rtcicecandidatetype-enum)
+#### [4.8.1.4 RTCIceCandidateType枚举](http://w3c.github.io/webrtc-pc/#rtcicecandidatetype-enum)
 
-The RTCIceCandidateType represents the type of the ICE candidate, as defined in [ICE] section 15.1.
-
-zh:RTCIceCandidateType表示ICE候选的类型，如[ICE]第15.1节中所定义。
+RTCIceCandidateType表示ICE候选的类型，如[ICE]第15.1节中所定义。
 
 ```
 enum RTCIceCandidateType {
@@ -16,7 +14,7 @@ enum RTCIceCandidateType {
 <table>
 	<tr>
 		<td colspan="2">
-		Enumeration description
+		枚举描述
 		</td>
 	</tr>
 	<tr>
@@ -24,7 +22,7 @@ enum RTCIceCandidateType {
 		host
 		</td>
 		<td>
-		A host candidate, as defined in Section 4.1.1.1 of [ICE].
+		表示一个主持人候选人, 详细描述参考 4.1.1.1 节 [ICE].
 		</td>
 	</tr>
 	<tr>
@@ -32,7 +30,7 @@ enum RTCIceCandidateType {
 		srflx
 		</td>
 		<td>
-		A server reflexive candidate, as defined in Section 4.1.1.2 of [ICE].
+		表示一个服务端反身候选人,  详细描述参考 4.1.1.2 节 [ICE].
 		</td>
 	</tr>
 	<tr>
@@ -40,7 +38,7 @@ enum RTCIceCandidateType {
 		prflx
 		</td>
 		<td>
-		A peer reflexive candidate, as defined in Section 4.1.1.2 of [ICE].
+		表示一个对端反身候选人，详细描述参考 4.1.1.2 节 [ICE].
 		</td>
 	</tr>
 	<tr>
@@ -48,7 +46,7 @@ enum RTCIceCandidateType {
 		relay
 		</td>
 		<td>
-		A relay candidate, as defined in Section 7.1.3.2.1 of [ICE].
+		表示一个中继候选人, 详细描述参考 7.1.3.2.1 节 [ICE].
 		</td>
 	</tr>
 </table>
