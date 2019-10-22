@@ -22,7 +22,7 @@ enum RTCPeerConnectionState {
 		closed
 		</td>
 		<td>
-		zh:RTCPeerConnection对象的[[IsClosed]]值为true。
+		RTCPeerConnection对象的[[IsClosed]]值为true。
 		</td>
 	</tr>
 	<tr>
@@ -30,7 +30,7 @@ enum RTCPeerConnectionState {
 		failed
 		</td>
 		<td>
-		zh:之前的状态不适用，任何RTCIceTransports或RTCDtlsTransports都处于“failed”状态。
+		之前的状态不适用，任何RTCIceTransports或RTCDtlsTransports都处于“failed”状态。
 		</td>
 	</tr>
 	<tr>
@@ -38,7 +38,7 @@ enum RTCPeerConnectionState {
 		disconnected
 		</td>
 		<td>
-		zh:之前的状态不适用，任何RTCIceTransports或RTCDtlsTransports都处于“disconnected”状态。
+		之前的状态不适用，任何RTCIceTransports或RTCDtlsTransports都处于“disconnected”状态。
 		</td>
 	</tr>
 	<tr>
@@ -46,8 +46,7 @@ enum RTCPeerConnectionState {
 		new	
 		</td>
 		<td>
-		None of the previous states apply and all RTCIceTransports and RTCDtlsTransports are in the "new" or "closed" state, or there are no transports.
-		zh：以前的状态都不适用，并且所有RTCIceTransports或RTCDtlsTransport都处于“new”或“closed”状态，或者当前没有传输。
+		以前的状态都不适用，并且所有RTCIceTransports或RTCDtlsTransport都处于“new”或“closed”状态，或者当前没有传输。
 		</td>
 	</tr>
 	<tr>
@@ -55,8 +54,7 @@ enum RTCPeerConnectionState {
 		connecting	
 		</td>
 		<td>
-		None of the previous states apply and all RTCIceTransports or RTCDtlsTransports are in the "new", "connecting" or "checking" state.
-		zh：以前的状态都不适用，并且所有RTCIceTransports或RTCDtlsTransport都处于“new”，“connecting”或”checking”状态。
+		以前的状态都不适用，并且所有RTCIceTransports或RTCDtlsTransport都处于“new”，“connecting”或”checking”状态。
 		</td>
 	</tr>
 	<tr>
@@ -64,8 +62,7 @@ enum RTCPeerConnectionState {
 		connected
 		</td>
 		<td>
-		None of the previous states apply and all RTCIceTransports and RTCDtlsTransports are in the "connected", "completed" or "closed" state.
-		zh：以前的状态均不适用，并且所有RTCIceTransports和RTCDtlsTransports都处于“connected”，“completed”或“closed”状态。
+		以前的状态均不适用，并且所有RTCIceTransports和RTCDtlsTransports都处于“connected”，“completed”或“closed”状态。
 		</td>
 	</tr>
 </table>
