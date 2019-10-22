@@ -54,26 +54,25 @@ zh:DOMString类型的peerIdentity
 设置 RTCPeerConnection 目标对端的标识。 RTCPeerConnection 不会与对端建立连接，除非对端提供名称并用该名称成功验证身份。
 
 certificates of type sequence<RTCCertificate>:
-zh:序列号<RTCCertificate>的证书。
+序列号<RTCCertificate>的证书。
 
-zh:RTCPeerConnection 用于进行身份验证的一组证书。
+RTCPeerConnection 用于进行身份验证的一组证书。
 
-zh:通过调用 generateCertificate 函数创建此参数的有效值
+通过调用 generateCertificate 函数创建此参数的有效值
 
-zh:虽然任何给定的 DTLS 连接仅使用一个证书，但此属性允许调用者提供支持不同算法的多个证书。将根据 DTLS 握手允许哪些证书，来选择最终证书。 RTCPeerConnection 实现选择将哪个证书用于给定连接;如何选择证书超出了本规范的范围。
+虽然任何给定的 DTLS 连接仅使用一个证书，但此属性允许调用者提供支持不同算法的多个证书。将根据 DTLS 握手允许哪些证书，来选择最终证书。 RTCPeerConnection 实现选择将哪个证书用于给定连接;如何选择证书超出了本规范的范围。
 
-zh:如果此值不存在，则为每个 RTCPeerConnection 实例生成一组默认证书。
+如果此值不存在，则为每个 RTCPeerConnection 实例生成一组默认证书。
 
-zh:此选项允许应用程序建立密钥连续性。 RTCCertificate 可以保存在 [INDEXEDDB] 中并重复使用。持久性和重用也避免了密钥生成的成本。
+此选项允许应用程序建立密钥连续性。 RTCCertificate 可以保存在 [INDEXEDDB] 中并重复使用。持久性和重用也避免了密钥生成的成本。
 
-zh:最初选择此值后，此配置选项的值不能更改
+最初选择此值后，此配置选项的值不能更改
 
-iceCandidatePoolSize of type octet, defaulting to 0:
-zh:octet类型的iceCandidatePoolSize，默认为0
+octet类型的iceCandidatePoolSize，默认为0
 
 	 Size of the prefetched ICE pool as defined in [JSEP] (section 3.5.4. and section 4.1.1.). 
 	zh: [JSEP]（第3.5.4节和第4.1.1节）中定义的预取ICE池的大小。
 
 Size of the prefetched ICE pool as defined in [JSEP] (section 3.5.4. and section 4.1.1.).
 
-zh:[JSEP]（第3.5.4节和第4.1.1节）中定义的预取ICE池的大小。
+[JSEP]（第3.5.4节和第4.1.1节）中定义的预取ICE池的大小。
