@@ -12,7 +12,7 @@
 		
 		2.  如果 description 的类型对于当前信令连接状态无效，如[JSEP]（第5.5节和第5.6节）中所述，则使用新创建的 InvalidStateError 错误，p 以拒绝的状态返回这个错误，并中止这些步骤。
 
-		3.  如果 description 被设置为本地描述，如果 escription.type 是 offer 并且description.sdp 不等于 connection 的[[LastOffer]]，则创建新的 InvalidModificationError 错误，p 以拒绝的状态返回这个错误，并中止这些步骤。
+		3.  如果 description 被设置为本地描述，如果 description.type 是 offer 并且description.sdp 不等于 connection 的[[LastOffer]]，则创建新的 InvalidModificationError 错误，p 以拒绝的状态返回这个错误，并中止这些步骤。
 
 		4.  如果将 description 设置为本地描述，如果 description.type 为“rollback”且信令状态为“stable”，则创建新的 InvalidStateError 错误，p以拒绝的状态返回这个错误，并中止这些步骤。
 
